@@ -1,4 +1,4 @@
-﻿namespace WK.Libraries.SharpClipboard
+﻿namespace WK.Libraries.SharpClipboardNS
 {
     partial class SharpClipboard
     {

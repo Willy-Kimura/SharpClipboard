@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SharpClipboard - A library for anonymously monitoring clipboard entries.")]
-[assembly: AssemblyDescription("A library for anonymously monitoring clipboard entries.")]
+[assembly: AssemblyTitle("SharpClipboard Tests")]
+[assembly: AssemblyDescription("A testing project for the SharpClipboard library.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Willy Kimura")]
-[assembly: AssemblyProduct("SharpClipboard - Clipboard Monitoring Library")]
+[assembly: AssemblyProduct("SharpCliboard - Testing Project")]
 [assembly: AssemblyCopyright("Copyright ©  2019, Willy Kimura.")]
 [assembly: AssemblyTrademark("A product of Willy Kimura.")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("005c3326-d638-4113-aebb-a83433cc015e")]
+[assembly: Guid("86f8eac7-259d-4a2f-842d-aa93163293c0")]
 
 // Version information for an assembly consists of the following four values:
 //
