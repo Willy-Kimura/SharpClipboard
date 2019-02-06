@@ -47,7 +47,7 @@ namespace SharpClipboardPreview.Tests
 
         private void sharpClipboard1_ClipboardChanged(object sender, SharpClipboard.ClipboardChangedEventArgs e)
         {
-            if (e.ContentType == WK.Libraries.SharpClipboardNS.SharpClipboard.ContentTypes.Text)
+            if (e.ContentType == SharpClipboard.ContentTypes.Text)
             {
                 txtCopiedTexts.Text = sharpClipboard1.ClipboardText;
 
@@ -79,6 +79,9 @@ namespace SharpClipboardPreview.Tests
                 // ---------------------------
                 // lstCopiedFiles.Items.AddRange(((List<string>)e.Content).ToArray()));
             }
+
+            textBox1.Text = $"Name: {e.SourceApplication.Name}, Title: {e.SourceApplication.Title}, " +
+                            $"ID: {e.SourceApplication.ID}, Path: {e.SourceApplication.Path}";
         }
     }
 }

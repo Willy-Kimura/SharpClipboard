@@ -20,6 +20,7 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using System.Runtime.InteropServices;
 
 using WK.Libraries.SharpClipboardNS.Views;
 
@@ -57,12 +58,12 @@ namespace WK.Libraries.SharpClipboardNS
         #endregion
 
         #region Fields
-        
+
         private bool _monitorClipboard;
 
         private string _clipboardText;
         private string _clipboardFile;
-        private List<string> _clipboardFiles =  new List<string>();
+        private List<string> _clipboardFiles = new List<string>();
 
         private Image _clipboardImage;
         private Timer _timer = new Timer();
@@ -191,7 +192,7 @@ namespace WK.Libraries.SharpClipboardNS
             get { return _clipboardImage; }
             internal set { _clipboardImage = value; }
         }
-        
+
         #endregion
 
         #endregion
@@ -209,9 +210,21 @@ namespace WK.Libraries.SharpClipboardNS
             _timer.Tick += OnLoad;
         }
 
+        [DllImport("user32.dll")]
+        static extern IntPtr GetForegroundWindow();
+
         #endregion
 
         #region Public
+
+        /// <summary>
+        /// Gets the current foreground window's handle.
+        /// </summary>
+        /// <returns></returns>
+        public IntPtr ForegroundWindowHandle()
+        {
+            return GetForegroundWindow();
+        }
 
         /// <summary>
         /// Starts the clipboard-monitoring process and
@@ -219,8 +232,7 @@ namespace WK.Libraries.SharpClipboardNS
         /// </summary>
         public void StartMonitoring()
         {
-            if (MonitorClipboard)
-                _handle.Show();
+            _handle.Show();
         }
 
         /// <summary>
@@ -229,8 +241,7 @@ namespace WK.Libraries.SharpClipboardNS
         /// </summary>
         public void StopMonitoring()
         {
-            if (_handle.Visible)
-                _handle.Close();
+            _handle.Close();
         }
 
         /// <summary>
@@ -238,9 +249,9 @@ namespace WK.Libraries.SharpClipboardNS
         /// </summary>
         /// <param name="content">The current clipboard content.</param>
         /// <param name="type">The current clipboard content-type.</param>
-        internal void Invoke(object content, ContentTypes type)
+        internal void Invoke(object content, ContentTypes type, SourceApplication source)
         {
-            ClipboardChanged?.Invoke(this, new ClipboardChangedEventArgs(content, type));
+            ClipboardChanged?.Invoke(this, new ClipboardChangedEventArgs(content, type, source));
         }
 
         #endregion
@@ -292,16 +303,25 @@ namespace WK.Libraries.SharpClipboardNS
             /// </summary>
             /// <param name="content">The current clipboard content.</param>
             /// <param name="contentType">The current clipboard-content-type.</param>
-            public ClipboardChangedEventArgs(object content, ContentTypes contentType)
+            public ClipboardChangedEventArgs(object content, ContentTypes contentType, SourceApplication source)
             {
                 Content = content;
                 ContentType = contentType;
+
+                _source = new SourceApplication(source.ID, source.Handle, source.Name,
+                                                source.Title, source.Path);
             }
 
             #endregion
-            
+
+            #region Fields
+
+            private SourceApplication _source;
+
+            #endregion
+
             #region Properties
-            
+
             /// <summary>
             /// Gets the currently copied clipboard content.
             /// </summary>
@@ -311,7 +331,17 @@ namespace WK.Libraries.SharpClipboardNS
             /// Gets the currently copied clipboard content-type.
             /// </summary>
             public ContentTypes ContentType { get; }
-            
+
+            /// <summary>
+            /// Gets the application from where the
+            /// clipboard's content were copied.
+            /// </summary>
+            public SourceApplication SourceApplication
+            {
+                get { return _source; }
+
+            }
+
             #endregion
         }
 
@@ -348,7 +378,7 @@ namespace WK.Libraries.SharpClipboardNS
         public class WKDesigner : ComponentDesigner
         {
             private DesignerActionListCollection actionLists;
-            
+
             // Use pull model to populate smart tag menu.
             public override DesignerActionListCollection ActionLists
             {
@@ -384,7 +414,7 @@ namespace WK.Libraries.SharpClipboardNS
 
                 // Cache a reference to DesignerActionUIService so 
                 // that the DesignerActionList can be refreshed.
-                this.designerActionUISvc = GetService(typeof(DesignerActionUIService)) 
+                this.designerActionUISvc = GetService(typeof(DesignerActionUIService))
                                            as DesignerActionUIService;
 
                 // Automatically display Smart Tags for quick access
@@ -451,7 +481,7 @@ namespace WK.Libraries.SharpClipboardNS
                     new DesignerActionPropertyItem("MonitorClipboard",
                                      "Monitor Clipboard", "Behaviour",
                                      GetPropertyDescriptor(this.Component, "MonitorClipboard").Description)
-                    
+
                 };
 
                 return items;
@@ -475,7 +505,7 @@ namespace WK.Libraries.SharpClipboardNS
         #endregion
     }
 
-    #region Observable Formats
+    #region Property Classes
 
     /// <summary>
     /// Provides a list of supported observable data formats
@@ -488,7 +518,7 @@ namespace WK.Libraries.SharpClipboardNS
     public class ObservableDataFormats
     {
         /// <summary>
-        /// Creates a new <see cref="ObservableDataFormats"/> options class.
+        /// Creates a new <see cref="ObservableDataFormats"/> options class-instance.
         /// </summary>
         public ObservableDataFormats()
         {
@@ -557,6 +587,75 @@ namespace WK.Libraries.SharpClipboardNS
         public override string ToString()
         {
             return $"Texts: {Texts}; Images: {Images}; Files: {Files}";
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// Stores details of the application from
+    /// where the clipboard's content were copied.
+    /// </summary>
+    [EditorBrowsable(EditorBrowsableState.Never)]
+    public class SourceApplication
+    {
+        /// <summary>
+        /// Creates a new <see cref="SourceApplication"/> class-instance.
+        /// </summary>
+        /// <param name="id">The application's ID.</param>
+        /// <param name="handle">The application's handle.</param>
+        /// <param name="name">The application's name.</param>
+        /// <param name="title">The application's title.</param>
+        /// <param name="path">The application's path.</param>
+        internal SourceApplication(int id, IntPtr handle, string name,
+                                   string title, string path)
+        {
+            ID = id;
+            Name = name;
+            Path = path;
+            Title = title;
+            Handle = handle;
+        }
+
+        #region Properties
+
+        /// <summary>
+        /// Gets the application's process-ID.
+        /// </summary>
+        public int ID { get; }
+        
+        /// <summary>
+        /// Gets the appliation's window-handle.
+        /// </summary>
+        public IntPtr Handle { get; }
+
+        /// <summary>
+        /// Gets the application's name.
+        /// </summary>
+        public string Name { get; }
+
+        /// <summary>
+        /// Gets the application's title-text.
+        /// </summary>
+        public string Title { get; }
+
+        /// <summary>
+        /// Gets the application's absolute path.
+        /// </summary>
+        public string Path { get; }
+
+        #endregion
+
+        #region Overrides
+
+        /// <summary>
+        /// Returns a <see cref="string"/> containing the list 
+        /// of application details provided.
+        /// </summary>
+        public override string ToString()
+        {
+            return $"ID: {ID}; Handle: {Handle}, Name: {Name}; " +
+                   $"Title: {Title}; Path: {Path}";
         }
 
         #endregion

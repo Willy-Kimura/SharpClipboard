@@ -57,6 +57,7 @@ namespace SharpClipboardPreview.Tests
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.sharpClipboard1 = new WK.Libraries.SharpClipboardNS.SharpClipboard(this.components);
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.grpLibrarySettings.SuspendLayout();
             this.grpObservableFormats.SuspendLayout();
@@ -84,7 +85,7 @@ namespace SharpClipboardPreview.Tests
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F);
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 15.75F);
             this.lblTitle.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lblTitle.Location = new System.Drawing.Point(22, 14);
             this.lblTitle.Name = "lblTitle";
@@ -244,6 +245,7 @@ namespace SharpClipboardPreview.Tests
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Honeydew;
+            this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.txtCopiedTexts);
             this.panel2.Controls.Add(this.label2);
@@ -256,11 +258,11 @@ namespace SharpClipboardPreview.Tests
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F);
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(25, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 30);
+            this.label1.Size = new System.Drawing.Size(130, 30);
             this.label1.TabIndex = 7;
             this.label1.Text = "Copied Texts";
             // 
@@ -303,11 +305,11 @@ namespace SharpClipboardPreview.Tests
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F);
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(25, 14);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(162, 30);
+            this.label3.Size = new System.Drawing.Size(163, 30);
             this.label3.TabIndex = 7;
             this.label3.Text = "Copied Image(s)";
             // 
@@ -352,7 +354,7 @@ namespace SharpClipboardPreview.Tests
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semilight", 15.75F);
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 15.75F);
             this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(25, 14);
             this.label5.Name = "label5";
@@ -380,6 +382,18 @@ namespace SharpClipboardPreview.Tests
             this.sharpClipboard1.Tag = null;
             this.sharpClipboard1.ClipboardChanged += new System.EventHandler<WK.Libraries.SharpClipboardNS.SharpClipboard.ClipboardChangedEventArgs>(this.sharpClipboard1_ClipboardChanged);
             this.sharpClipboard1.MonitorClipboardChanged += new System.EventHandler<System.EventArgs>(this.sharpClipboard1_MonitorClipboardChanged);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Location = new System.Drawing.Point(8, 212);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(236, 170);
+            this.textBox1.TabIndex = 9;
             // 
             // MainForm
             // 
@@ -436,6 +450,7 @@ namespace SharpClipboardPreview.Tests
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ListBox lstCopiedFiles;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
