@@ -57,7 +57,6 @@ namespace SharpClipboardPreview.Tests
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.sharpClipboard1 = new WK.Libraries.SharpClipboardNS.SharpClipboard(this.components);
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.grpLibrarySettings.SuspendLayout();
             this.grpObservableFormats.SuspendLayout();
@@ -245,7 +244,6 @@ namespace SharpClipboardPreview.Tests
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Honeydew;
-            this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.txtCopiedTexts);
             this.panel2.Controls.Add(this.label2);
@@ -383,18 +381,6 @@ namespace SharpClipboardPreview.Tests
             this.sharpClipboard1.ClipboardChanged += new System.EventHandler<WK.Libraries.SharpClipboardNS.SharpClipboard.ClipboardChangedEventArgs>(this.sharpClipboard1_ClipboardChanged);
             this.sharpClipboard1.MonitorClipboardChanged += new System.EventHandler<System.EventArgs>(this.sharpClipboard1_MonitorClipboardChanged);
             // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(8, 212);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(236, 170);
-            this.textBox1.TabIndex = 9;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -450,7 +436,6 @@ namespace SharpClipboardPreview.Tests
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ListBox lstCopiedFiles;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

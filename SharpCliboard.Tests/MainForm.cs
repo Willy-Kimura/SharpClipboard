@@ -80,8 +80,10 @@ namespace SharpClipboardPreview.Tests
                 // lstCopiedFiles.Items.AddRange(((List<string>)e.Content).ToArray()));
             }
 
-            textBox1.Text = $"Name: {e.SourceApplication.Name}, Title: {e.SourceApplication.Title}, " +
-                            $"ID: {e.SourceApplication.ID}, Path: {e.SourceApplication.Path}";
+            // Add a TextBox, uncomment the lines below and run.
+            // -------------------------------------------------
+            // textBox1.Text = $"Name: {e.SourceApplication.Name}, Title: {e.SourceApplication.Title}, " +
+            //                 $"ID: {e.SourceApplication.ID}, Path: {e.SourceApplication.Path}";
         }
     }
 }

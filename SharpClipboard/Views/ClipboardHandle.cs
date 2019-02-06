@@ -264,19 +264,15 @@ namespace WK.Libraries.SharpClipboardNS.Views
         private void OnLoad(object sender, EventArgs e)
         {
             // Start listening for clipboard changes.
-            if (SharpClipboardInstance.MonitorClipboard)
-                _chainedWnd = SetClipboardViewer(this.Handle);
+            _chainedWnd = SetClipboardViewer(this.Handle);
         }
 
         private void OnFormClosing(object sender, FormClosingEventArgs e)
         {
-            if (SharpClipboardInstance.MonitorClipboard)
-            {
-                // Stop listening to clipboard changes.
-                ChangeClipboardChain(this.Handle, _chainedWnd);
+            // Stop listening to clipboard changes.
+            ChangeClipboardChain(this.Handle, _chainedWnd);
 
-                _chainedWnd = IntPtr.Zero;
-            }
+            _chainedWnd = IntPtr.Zero;
         }
 
         #endregion
