@@ -92,7 +92,12 @@ namespace WK.Libraries.SharpClipboardNS
             /// <summary>
             /// Represents content as a <see cref="List{string}"/> of files.
             /// </summary>
-            Files = 2
+            Files = 2,
+
+            /// <summary>
+            /// Represents any complex objects.
+            /// </summary>
+            Other = 3
         }
 
         #endregion
@@ -551,6 +556,7 @@ namespace WK.Libraries.SharpClipboardNS
                 Texts = value;
                 Files = value;
                 Images = value;
+                Others = value;
 
             }
         }
@@ -576,6 +582,15 @@ namespace WK.Libraries.SharpClipboardNS
         [Description("Sets a value indicating whether images will be monitored.")]
         public bool Images { get; set; } = true;
 
+        /// <summary>
+        /// Gets or sets a value indicating whether other 
+        /// complex object-types will be monitored.
+        /// </summary>
+        [Category("#Clipboard: Behaviour")]
+        [Description("Sets a value indicating whether other " +
+                     "complex object-types will be monitored.")]
+        public bool Others { get; set; } = false;
+
         #endregion
 
         #region Overrides
@@ -586,7 +601,7 @@ namespace WK.Libraries.SharpClipboardNS
         /// </summary>
         public override string ToString()
         {
-            return $"Texts: {Texts}; Images: {Images}; Files: {Files}";
+            return $"Texts: {Texts}; Images: {Images}; Files: {Files}; Others: {Others}";
         }
 
         #endregion

@@ -152,6 +152,12 @@ namespace WK.Libraries.SharpClipboardNS.Views
                                 new SourceApplication(GetForegroundWindow(), SharpClipboardInstance.ForegroundWindowHandle(),
                                 GetApplicationName(), GetActiveWindowTitle(), GetApplicationPath()));
                         }
+                        else
+                        {
+                            SharpClipboardInstance.Invoke(dataObj, SharpClipboard.ContentTypes.Other,
+                                new SourceApplication(GetForegroundWindow(), SharpClipboardInstance.ForegroundWindowHandle(),
+                                GetApplicationName(), GetActiveWindowTitle(), GetApplicationPath()));
+                        }
                     }
 
                     break;

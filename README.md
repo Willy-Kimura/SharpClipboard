@@ -17,7 +17,7 @@ Here's a comprehensive list of the features available:
 
 - Built as a component making it accessible in Design Mode.
 - Silently monitors the system clipboard uninterrupted; can also be disabled while running.
-- Ability to detect clipboard content in various formats, namely **text**, **images**, and **files**.
+- Ability to detect clipboard content in various formats, namely **text**, **images**, **files**, and **other complex types**.
 - Option to control the type of content to be monitored, e.g. **text** only, **text** and **images** only.
 - Ability to capture the background application's details from where the clipboard's contents were cut/copied. 
 *For example:*
@@ -74,6 +74,12 @@ To use it in code, first import `WK.Libraries.SharpClipboardNS` - the code below
             // first file copied to the clipboard.
             Debug.WriteLine(clipboard.ClipboardFile);
         }
+
+        // If the cut/copied content is complex, use 'Other'...
+        else if (e.ContentType == SharpClipboard.ContentTypes.Other)
+        {
+            // Do something with 'e.Content' here...
+        }
     }
 ```
 
@@ -94,3 +100,21 @@ You can also get the details of the application from where the clipboard's conte
 ```
 
 This option could come in handy especially when you're building a clipboard-monitoring application where users may feel the need to know where every recorded cut/copy action occurred.
+
+To manually parse the content after a cut/copy has been detected, you can use the  argument property `e.Content` in the `ClipboardChanged` event:
+
+```c#
+    private void ClipboardChanged(Object sender, ClipboardChangedEventArgs e)
+    {
+        // For texts...
+        string text = e.Content.ToString();
+
+        // or images...
+        // Image img = (Image)e.Content;
+
+        // or files...
+        // List<string> files = (List<string>)e.Content;
+
+        // or other complex types too.
+    }
+```

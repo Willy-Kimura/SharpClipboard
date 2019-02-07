@@ -82,6 +82,10 @@ namespace SharpClipboardPreview.Tests
                 // ---------------------------
                 // lstCopiedFiles.Items.AddRange(((List<string>)e.Content).ToArray()));
             }
+            else if (e.ContentType == SharpClipboard.ContentTypes.Other)
+            {
+                // Do something with 'e.Content' here...
+            }
 
             // Add a TextBox, uncomment the lines below and run.
             // -------------------------------------------------
