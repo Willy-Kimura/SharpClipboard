@@ -8,9 +8,11 @@ Here's a screenshot and below a usage-preview of the library's features:
 ![sc-usage](/Assets/sharpclipboard-usage-01.gif)
 
 # Installation
-To install, simply [download](https://github.com/Willy-Kimura/SharpClipboard/releases/download/v1.0.3/SharpClipboard.dll) the library and add it to Visual Studio's Toolbox.
+To install via the NuGet Package Manager Console, type:
 
-*Nuget version coming soon :)*
+> `Install-Package SharpClipboard -Version 2.0.0`
+
+You can also [download](https://github.com/Willy-Kimura/SharpClipboard/releases/download/v1.0.3/SharpClipboard.dll) the assembly and add it to Visual Studio's Toolbox.
 
 # Features
 Here's a comprehensive list of the features available:
