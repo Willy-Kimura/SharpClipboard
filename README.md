@@ -32,3 +32,29 @@ private void ClipboardChanged(Object sender, SharpClipboard.ClipboardChangedEven
     Debug.WriteLine(e.SourceApplication.Path);
 }
 ```
+# Usage
+If you prefer working with the Designer, simply add the library to Visual Studio's Toolbox and use the
+*Properties* window to change ita options.
+
+To use it in code, first import `WK.Libraries.SharpClipboardNS`; the code below will then assist you:
+```c#
+var clipboard = new SharpClipboard();
+
+// Attach your code to the ClipboardChanged event to listen to cut/copied content.
+private void ClipboardChanged(Object sender, ClipboardChangedEventArgs e)
+{
+    // Check if the content copied is of text type...
+    if (e.ContentType == SharpClipboard.ContentTypes.Text)
+    {
+        // Get the cut/copied text.
+        // You can also use 'e.Content' though for Images
+        // and Files content-types you'll need to cast it.
+        Debug.WriteLine(clipboard.ClipboardText);
+    }
+    // Check if the content copied is of image type...
+    else if (e.ContentType == SharpClipboard.ContentTypes.Image)
+    {
+        // pictureBox1.Image = clipboard.ClipboardImage;
+    }
+}
+```
