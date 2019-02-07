@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<package>
+  <metadata>
+    <id>SharpClipboard</id>
+    <version>1.0.0</version>
+    <title>SharpClipboard</title>
+    <authors>WillyKimura</authors>
+    <owners>WillyKimura</owners>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/Willy-Kimura/SharpClipboard</projectUrl>
+    <iconUrl>https://www.website.com/logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>
+    SharpClipboard is a clipboard-monitoring library for .NET that listens 
+    to the system's clipboard entries, allowing developers to tap into the 
+    rich capabilities of determining the clipboard's contents at runtime.
+    </description>
+    <releaseNotes>Initial v2.0.0 release</releaseNotes>
+    <copyright>Copyright 2018, Willy Kimura</copyright>
+    <tags>
+    c# vb clipboard monitor clipboard-monitor clipboard-manager clipboard-history
+    </tags>
+    <dependencies>
+    </dependencies>
+    <summary>A library for anonymously monitoring clipboard entries.</summary>
+  </metadata>
+  <files>
+    <file src="readme.txt" />
+    <file src="SharpClipboard\bin\Debug\SharpClipboard.dll" target="lib" />
+  </files>
+</package>
