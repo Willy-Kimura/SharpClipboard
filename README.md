@@ -49,33 +49,31 @@ To use it in code, first import `WK.Libraries.SharpClipboardNS` - the code below
     
     private void ClipboardChanged(Object sender, ClipboardChangedEventArgs e)
     {
-        // Check if the content copied is of text type...
+        // Is the content copied of text type?
         if (e.ContentType == SharpClipboard.ContentTypes.Text)
         {
             // Get the cut/copied text.
-            // You can also use 'e.Content' though for Images
-            // and Files content-types you'll need to cast it.
             Debug.WriteLine(clipboard.ClipboardText);
         }
 
-        // Check if the content copied is of image type...
+        // Is the content copied of image type?
         else if (e.ContentType == SharpClipboard.ContentTypes.Image)
         {
-            // Add a picturebox and uncomment the line below.
-            // pictureBox1.Image = clipboard.ClipboardImage;
+            // Get the cut/copied image.
+            Image img = clipboard.ClipboardImage;
         }
 
-        // Check if the content copied is of file type...
+        // Is the content copied of file type?
         else if (e.ContentType == SharpClipboard.ContentTypes.Files)
         {
+            // Get the cut/copied file/files.
             Debug.WriteLine(clipboard.ClipboardFiles.ToArray());
 
-            // Or you can also use 'ClipboardFile' to get the
-            // first file copied to the clipboard.
+            // ...or use 'ClipboardFile' to get a single copied file.
             Debug.WriteLine(clipboard.ClipboardFile);
         }
 
-        // If the cut/copied content is complex, use 'Other'...
+        // If the cut/copied content is complex, use 'Other'.
         else if (e.ContentType == SharpClipboard.ContentTypes.Other)
         {
             // Do something with 'e.Content' here...
