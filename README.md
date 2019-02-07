@@ -110,10 +110,10 @@ To manually parse the content after a cut/copy has been detected, you can use th
         string text = e.Content.ToString();
 
         // or images...
-        // Image img = (Image)e.Content;
+        Image img = (Image)e.Content;
 
         // or files...
-        // List<string> files = (List<string>)e.Content;
+        List<string> files = (List<string>)e.Content;
 
         // or other complex types too.
     }
