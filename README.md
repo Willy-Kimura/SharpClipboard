@@ -39,7 +39,8 @@ If you prefer working with the Designer, simply add the library to Visual Studio
 
 ![sc-preview-02](/Assets/sharpclipboard-preview-02.png)
 
-To use it in code, first import `WK.Libraries.SharpClipboardNS` - the code below will then assist you: ```c#
+To use it in code, first import `WK.Libraries.SharpClipboardNS` - the code below will then assist you: 
+```c#
     var clipboard = new SharpClipboard();
 
     // Attach your code to the ClipboardChanged event to listen to cuts/copies.
@@ -73,4 +74,4 @@ To use it in code, first import `WK.Libraries.SharpClipboardNS` - the code below
             Debug.WriteLine(clipboard.ClipboardFile);
         }
     }
-    ```
+```
