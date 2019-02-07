@@ -213,6 +213,8 @@ namespace WK.Libraries.SharpClipboardNS
             _timer.Enabled = true;
             _timer.Interval = 1000;
             _timer.Tick += OnLoad;
+
+            MonitorClipboard = true;
         }
 
         [DllImport("user32.dll")]
