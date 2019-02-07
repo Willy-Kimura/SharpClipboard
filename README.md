@@ -1,5 +1,5 @@
 # SharpClipboard
-[![sc-build-passing](/Assets/nuget-package-2.0.0-brightgreen.svg)](https://www.nuget.org/packages/SharpClipboard/) [![sc-build-passing](/Assets/Donate-PayPal-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DJ8D9CE8BWA3J&source=url)
+[![sc-build-passing](/Assets/nuget-package-2.0.1-brightgreen.svg)](https://www.nuget.org/packages/SharpClipboard/) [![sc-build-passing](/Assets/Donate-PayPal-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DJ8D9CE8BWA3J&source=url)
 
 **SharpClipboard** is a clipboard-monitoring library for .NET that listens to the system's clipboard entries,
 allowing developers to tap into the rich capabilities of determining the clipboard's contents at runtime.
@@ -12,9 +12,9 @@ Here's a screenshot and below a usage-preview of the library's features:
 # Installation
 To install via the NuGet Package Manager Console, type:
 
-> `Install-Package SharpClipboard -Version 2.0.0`
+> `Install-Package SharpClipboard -Version 2.0.1`
 
-You can also [download](https://github.com/Willy-Kimura/SharpClipboard/releases/download/v1.0.3/SharpClipboard.dll) the assembly and add it to Visual Studio's Toolbox.
+You can also [download](https://github.com/Willy-Kimura/SharpClipboard/releases/download/v2.0.1/SharpClipboard.dll) the assembly and add it to Visual Studio's Toolbox.
 
 # Features
 Here's a comprehensive list of the features available:
