@@ -589,7 +589,7 @@ namespace WK.Libraries.SharpClipboardNS
         [Category("#Clipboard: Behaviour")]
         [Description("Sets a value indicating whether other " +
                      "complex object-types will be monitored.")]
-        public bool Others { get; set; } = false;
+        public bool Others { get; set; } = true;
 
         #endregion
 

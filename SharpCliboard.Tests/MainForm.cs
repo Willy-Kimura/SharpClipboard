@@ -1,11 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Drawing;
+using System.Diagnostics;
 using System.Windows.Forms;
 using System.Collections.Generic;
 
 using WK.Libraries.SharpClipboardNS;
-using System.Diagnostics;
 
 namespace SharpClipboardPreview.Tests
 {
