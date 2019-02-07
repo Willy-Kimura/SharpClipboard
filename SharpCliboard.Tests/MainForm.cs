@@ -14,7 +14,7 @@ namespace SharpClipboardPreview.Tests
         public MainForm()
         {
             InitializeComponent();
-
+            
             chkMonitorClipboard.Checked = sharpClipboard1.MonitorClipboard;
             chkObserveTexts.Checked = sharpClipboard1.ObservableFormats.Texts;
             chkObserveFiles.Checked = sharpClipboard1.ObservableFormats.Files;
