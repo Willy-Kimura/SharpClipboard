@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 
 using WK.Libraries.SharpClipboardNS;
+using System.Diagnostics;
 
 namespace SharpClipboardPreview.Tests
 {
@@ -71,6 +72,8 @@ namespace SharpClipboardPreview.Tests
                 {
                     files.Add(Path.GetFileName(file));
                 }
+
+                Debug.WriteLine(sharpClipboard1.ClipboardFiles.ToArray());
 
                 lstCopiedFiles.Items.Clear();
                 lstCopiedFiles.Items.AddRange(files.ToArray());
