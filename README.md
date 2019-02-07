@@ -2,9 +2,10 @@
 **SharpClipboard** is a clipboard-monitoring library for .NET that listens to the system's clipboard entries,
 allowing developers to tap into the rich capabilities of determining the clipboard's contents at runtime.
 
-Here's a screenshot of the library's features:
+Here's a screenshot and below a usage-preview of the library's features:
 
 ![sc-preview-01](/Assets/sharpclipboard-preview-01.png)
+![sc-usage](/Assets/sharpclipboard-usage-01.gif)
 
 # Installation
 To install, simply [download](https://github.com/Willy-Kimura/SharpClipboard/releases/download/v1.0.3/SharpClipboard.dll) the library and add it to Visual Studio's Toolbox.
@@ -75,3 +76,21 @@ To use it in code, first import `WK.Libraries.SharpClipboardNS` - the code below
         }
     }
 ```
+
+You can also get the details of the application from where the clipboard's contents were cut/copied from using the `ClipboardChanged` argument property `SourceApplication`:
+
+```c#
+    private void ClipboardChanged(Object sender, SharpClipboard.ClipboardChangedEventArgs e)
+    {
+        // Gets the application's executable name.
+        Debug.WriteLine(e.SourceApplication.Name);
+        // Gets the application's window title.
+        Debug.WriteLine(e.SourceApplication.Title);
+        // Gets the application's process ID.
+        Debug.WriteLine(e.SourceApplication.ID.ToString());
+        // Gets the application's executable path.
+        Debug.WriteLine(e.SourceApplication.Path);
+    }
+```
+
+This option could come in handy especially when you're building a clipboard-monitoring application where users may feel the need to know where every recorded cut/copy action occurred.
