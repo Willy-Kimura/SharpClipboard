@@ -131,9 +131,9 @@ namespace WK.Libraries.SharpClipboardNS.Views
 
                         // Determines whether text has been cut/copied.
                         else if ((SharpClipboardInstance.ObservableFormats.Texts == true) && 
-                                 (dataObj.GetDataPresent(DataFormats.Text)))
+                                 (dataObj.GetDataPresent(DataFormats.Text) || dataObj.GetDataPresent(DataFormats.UnicodeText)))
                         {
-                            string capturedText = dataObj.GetData(DataFormats.Text) as string;
+                            string capturedText = dataObj.GetData(DataFormats.UnicodeText).ToString();
                             SharpClipboardInstance.ClipboardText = capturedText;
 
                             SharpClipboardInstance.Invoke(capturedText, SharpClipboard.ContentTypes.Text,

@@ -23,6 +23,7 @@ using System.ComponentModel.Design;
 using System.Runtime.InteropServices;
 
 using WK.Libraries.SharpClipboardNS.Views;
+using System.Text;
 
 namespace WK.Libraries.SharpClipboardNS
 {
