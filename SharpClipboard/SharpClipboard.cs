@@ -23,7 +23,6 @@ using System.ComponentModel.Design;
 using System.Runtime.InteropServices;
 
 using WK.Libraries.SharpClipboardNS.Views;
-using System.Text;
 
 namespace WK.Libraries.SharpClipboardNS
 {
@@ -59,14 +58,10 @@ namespace WK.Libraries.SharpClipboardNS
         #endregion
 
         #region Fields
-
+    
         private bool _monitorClipboard;
+        private bool _observeLastEntry;
 
-        private string _clipboardText;
-        private string _clipboardFile;
-        private List<string> _clipboardFiles = new List<string>();
-
-        private Image _clipboardImage;
         private Timer _timer = new Timer();
         private ClipboardHandle _handle = new ClipboardHandle();
         private ObservableDataFormats _observableFormats = new ObservableDataFormats();
@@ -104,7 +99,7 @@ namespace WK.Libraries.SharpClipboardNS
         #endregion
 
         #region Properties
-
+    
         #region Browsable
 
         /// <summary>
@@ -121,6 +116,28 @@ namespace WK.Libraries.SharpClipboardNS
 
                 _monitorClipboard = value;
                 MonitorClipboardChanged?.Invoke(this, EventArgs.Empty);
+
+            }
+        }
+
+        /// <summary>
+        /// When set to true, the last cut/copied clipboard item will
+        /// not be auto-picked once monitoring is enabled. However when 
+        /// set to false, the last cut/copied clipboard item will be 
+        /// auto-picked once monitoring is enabled.
+        /// </summary>
+        [Category("#Clipboard: Behaviour")]
+        [Description("When set to true, the last cut/copied clipboard item will " +
+                     "not be auto-picked once monitoring is enabled. However when " +
+                     "set to false, the last cut/copied clipboard item will be " +
+                     "auto-picked once monitoring is enabled.")]
+        public bool ObserveLastEntry
+        {
+            get { return _observeLastEntry; }
+            set {
+
+                _observeLastEntry = value;
+                ObserveLastEntryChanged?.Invoke(this, EventArgs.Empty);
 
             }
         }
@@ -163,41 +180,25 @@ namespace WK.Libraries.SharpClipboardNS
         /// Gets the currently cut/copied clipboard text.
         /// </summary>
         [Browsable(false)]
-        public string ClipboardText
-        {
-            get { return _clipboardText; }
-            internal set { _clipboardText = value; }
-        }
+        public string ClipboardText { get; internal set; }
 
         /// <summary>
         /// Gets the currently cut/copied clipboard file-path.
         /// </summary>
         [Browsable(false)]
-        public string ClipboardFile
-        {
-            get { return _clipboardFile; }
-            internal set { _clipboardFile = value; }
-        }
+        public string ClipboardFile { get; internal set; }
 
         /// <summary>
         /// Gets the currently cut/copied clipboard file-paths.
         /// </summary>
         [Browsable(false)]
-        public List<string> ClipboardFiles
-        {
-            get { return _clipboardFiles; }
-            internal set { _clipboardFiles = value; }
-        }
+        public List<string> ClipboardFiles { get; internal set; } = new List<string>();
 
         /// <summary>
         /// Gets the currently cut/copied clipboard image.
         /// </summary>
         [Browsable(false)]
-        public Image ClipboardImage
-        {
-            get { return _clipboardImage; }
-            internal set { _clipboardImage = value; }
-        }
+        public Image ClipboardImage { get; internal set; }
 
         #endregion
 
@@ -214,8 +215,9 @@ namespace WK.Libraries.SharpClipboardNS
             _timer.Enabled = true;
             _timer.Interval = 1000;
             _timer.Tick += OnLoad;
-
+        
             MonitorClipboard = true;
+            ObserveLastEntry = true;
         }
 
         [DllImport("user32.dll")]
@@ -294,6 +296,13 @@ namespace WK.Libraries.SharpClipboardNS
         [Category("#Clipboard: Events")]
         [Description("Occurs whenever the allowed observable formats have been changed.")]
         public event EventHandler<EventArgs> ObservableFormatsChanged = null;
+
+        /// <summary>
+        /// Occurs whenever the 'ObserveLastEntry' property has been changed.
+        /// </summary>
+        [Category("#Clipboard: Events")]
+        [Description("Occurs whenever the allowed observable formats have been changed.")]
+        public event EventHandler<EventArgs> ObserveLastEntryChanged = null;
 
         #endregion
 

@@ -1,6 +1,6 @@
 ﻿/*
  * The SharpClipboard Handle.
- * ----------------------------------------
+ * ---------------------------------------+
  * Please preserve this window.
  * It acts as the message-processing
  * handle with regards to the clipboard. 
@@ -8,7 +8,7 @@
  * The window however will not be visible
  * to the users both via the Taskbar or 
  * the Task Manager so don't you worry :)
- * ----------------------------------------
+ * ---------------------------------------+
  * 
  */
 
@@ -16,13 +16,19 @@
 using System;
 using System.Text;
 using System.Drawing;
+using System.Diagnostics;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
-using System.Diagnostics;
 
 namespace WK.Libraries.SharpClipboardNS.Views
 {
+    /// <summary>
+    /// This window acts as a handle to the clipboard-monitoring process and 
+    /// thus will be launched in the background once the component has started 
+    /// the monitoring service. However, it won't be visible to anyone even via 
+    /// the Task Manager.
+    /// </summary>
     public partial class ClipboardHandle : Form
     {
         #region Constructor
@@ -41,6 +47,8 @@ namespace WK.Libraries.SharpClipboardNS.Views
         const int WM_DRAWCLIPBOARD = 0x0308;
         const int WM_CHANGECBCHAIN = 0x030D;
 
+        private bool _ready;
+
         private string _processName = string.Empty;
         private string _executableName = string.Empty;
         private string _executablePath = string.Empty;
@@ -50,11 +58,30 @@ namespace WK.Libraries.SharpClipboardNS.Views
         #region Properties
 
         /// <summary>
+        /// Checks if the handle is ready to monitor the system clipboard.
+        /// It is used to provide a final value for use whenever the property 
+        /// 'ObserveLastEntry' is enabled.
+        /// </summary>
+        [Browsable(false)]
+        internal bool Ready
+        {
+            get {
+
+                if (SharpClipboardInstance.ObserveLastEntry)
+                    _ready = true;
+
+                return _ready;
+
+            }
+            set { _ready = value; }
+        }
+
+        /// <summary>
         /// Gets or sets an active <see cref="SharpClipboard"/> instance
         /// for use when managing the current clipboard handle.
         /// </summary>
         [Browsable(false)]
-        public SharpClipboard SharpClipboardInstance { get; set; }
+        internal SharpClipboard SharpClipboardInstance { get; set; }
         
         #endregion
 
@@ -111,7 +138,7 @@ namespace WK.Libraries.SharpClipboardNS.Views
                 case WM_DRAWCLIPBOARD:
 
                     // If clipboard-monitoring is enabled, proceed to listening.
-                    if (SharpClipboardInstance.MonitorClipboard)
+                    if (Ready && SharpClipboardInstance.MonitorClipboard)
                     {
                         IDataObject dataObj = Clipboard.GetDataObject();
 
@@ -271,6 +298,7 @@ namespace WK.Libraries.SharpClipboardNS.Views
         {
             // Start listening for clipboard changes.
             _chainedWnd = SetClipboardViewer(this.Handle);
+            Ready = true;
         }
 
         private void OnFormClosing(object sender, FormClosingEventArgs e)

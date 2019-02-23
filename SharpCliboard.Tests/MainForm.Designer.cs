@@ -373,7 +373,9 @@ namespace SharpClipboardPreview.Tests
             this.sharpClipboard1.ObservableFormats.All = true;
             this.sharpClipboard1.ObservableFormats.Files = true;
             this.sharpClipboard1.ObservableFormats.Images = true;
+            this.sharpClipboard1.ObservableFormats.Others = true;
             this.sharpClipboard1.ObservableFormats.Texts = true;
+            this.sharpClipboard1.ObserveLastEntry = true;
             this.sharpClipboard1.Tag = null;
             this.sharpClipboard1.ClipboardChanged += new System.EventHandler<WK.Libraries.SharpClipboardNS.SharpClipboard.ClipboardChangedEventArgs>(this.sharpClipboard1_ClipboardChanged);
             this.sharpClipboard1.MonitorClipboardChanged += new System.EventHandler<System.EventArgs>(this.sharpClipboard1_MonitorClipboardChanged);
