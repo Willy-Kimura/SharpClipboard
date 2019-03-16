@@ -183,6 +183,13 @@ namespace WK.Libraries.SharpClipboardNS
         public string ClipboardText { get; internal set; }
 
         /// <summary>
+        /// Gets the currently cut/copied clipboard <see cref="object"/>.
+        /// This is necessary when handling complex content copied to the clipboard.
+        /// </summary>
+        [Browsable(false)]
+        public object ClipboardObject { get; internal set; }
+
+        /// <summary>
         /// Gets the currently cut/copied clipboard file-path.
         /// </summary>
         [Browsable(false)]

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Drawing;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.Collections.Generic;
@@ -84,7 +83,17 @@ namespace SharpClipboardPreview.Tests
             }
             else if (e.ContentType == SharpClipboard.ContentTypes.Other)
             {
-                // Do something with 'e.Content' here...
+                // Do something with 'e.Content' or alternatively
+                // 'sharpClipboard1.ClipboardObject' property here...
+
+                // A great example here is when a user has copied an Outlook Mail item.
+                // Such an item will be of a complex object-type format which can be parsed and
+                // examined by using the 'Microsoft.Office.Interop.Outlook' namespace features.
+                // See here: https://stackoverflow.com/questions/25375367/how-to-copy-mailitem-in-outlook-c-sharp
+
+                // You can however still use the 'ClipboardText' property if you
+                // prefer simply displaying the copied object in text format.
+                txtCopiedTexts.Text = sharpClipboard1.ClipboardText.ToString();
             }
 
             // Add a TextBox, uncomment the lines below and run.

@@ -148,12 +148,28 @@ namespace WK.Libraries.SharpClipboardNS.Views
                         {
                             string[] capturedFiles = (string[])dataObj.GetData(DataFormats.FileDrop);
 
-                            SharpClipboardInstance.ClipboardFiles.AddRange(capturedFiles);
-                            SharpClipboardInstance.ClipboardFile = capturedFiles[0];
+                            // If the 'capturedFiles' string array persists as null, then it means
+                            // that the copied content is of a complex object-type since the file-drop
+                            // format is able to capture more-than-just-file content in the clipboard.
+                            // Assign the content its rightful content-type.
+                            if (capturedFiles == null)
+                            {
+                                SharpClipboardInstance.ClipboardObject = dataObj;
+                                SharpClipboardInstance.ClipboardText = dataObj.GetData(DataFormats.UnicodeText).ToString();
+                            
+                                SharpClipboardInstance.Invoke(dataObj, SharpClipboard.ContentTypes.Other,
+                                    new SourceApplication(GetForegroundWindow(), SharpClipboardInstance.ForegroundWindowHandle(),
+                                    GetApplicationName(), GetActiveWindowTitle(), GetApplicationPath()));
+                            }
+                            else
+                            {
+                                SharpClipboardInstance.ClipboardFiles.AddRange(capturedFiles);
+                                SharpClipboardInstance.ClipboardFile = capturedFiles[0];
 
-                            SharpClipboardInstance.Invoke(capturedFiles, SharpClipboard.ContentTypes.Files, 
-                                new SourceApplication(GetForegroundWindow(), SharpClipboardInstance.ForegroundWindowHandle(),
-                                GetApplicationName(), GetActiveWindowTitle(), GetApplicationPath()));
+                                SharpClipboardInstance.Invoke(capturedFiles, SharpClipboard.ContentTypes.Files,
+                                    new SourceApplication(GetForegroundWindow(), SharpClipboardInstance.ForegroundWindowHandle(),
+                                    GetApplicationName(), GetActiveWindowTitle(), GetApplicationPath()));
+                            }
                         }
 
                         // Determines whether text has been cut/copied.
