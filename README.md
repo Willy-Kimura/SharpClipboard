@@ -14,7 +14,7 @@ To install via the NuGet Package Manager Console, type:
 
 > `Install-Package SharpClipboard -Version 3.0.0`
 
-You can also [download](https://github.com/Willy-Kimura/SharpClipboard/releases/download/v2.0.7/SharpClipboard.dll) the assembly and add it to Visual Studio's Toolbox; plus not forgetting its [documentation](https://github.com/Willy-Kimura/SharpClipboard/releases/download/v2.0.7/SharpClipboard.xml).
+You can also [download](https://github.com/Willy-Kimura/SharpClipboard/releases/download/v3.0.0/SharpClipboard.dll) the assembly and add it to Visual Studio's Toolbox; plus not forgetting its [documentation](https://github.com/Willy-Kimura/SharpClipboard/releases/download/v3.0.0/SharpClipboard.xml).
 
 # Features
 Here's a comprehensive list of the features available:
