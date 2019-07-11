@@ -141,8 +141,8 @@ namespace WK.Libraries.SharpClipboardNS.Views
                     if (Ready && SharpClipboardInstance.MonitorClipboard)
                     {
                         IDataObject dataObj;
-
                         int retryCount = 0;
+
                         while (true)
                         {
                             try
@@ -150,9 +150,14 @@ namespace WK.Libraries.SharpClipboardNS.Views
                                 dataObj = Clipboard.GetDataObject();
                                 break;
                             }
-                            // Crashes when data is deleted from clipboard without retry
                             catch (ExternalException)
                             {
+                                // Crashes when large data is copied from clipboard 
+                                // without retries. We'll therefore need to do a 5-step 
+                                // retry count to cut some slack for the operation to 
+                                // fully complete and ensure that the data is captured;
+                                // if all else fails, then throw an exception.
+                                // You may extend the retries if need be.
                                 if (++retryCount > 5)
                                     throw;
 

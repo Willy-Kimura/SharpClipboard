@@ -1,5 +1,5 @@
 # SharpClipboard
-[![sc-nuget](/Assets/nuget-package-3.0.0-brightgreen.svg)](https://www.nuget.org/packages/SharpClipboard/) [![sc-donate](/Assets/Donate-PayPal-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DJ8D9CE8BWA3J&source=url)
+[![sc-nuget](https://img.shields.io/badge/NuGet-3.1.0-brightgreen.svg)](https://www.nuget.org/packages/SharpClipboard/) [![sc-donate](/Assets/Donate-PayPal-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DJ8D9CE8BWA3J&source=url)
 
 **SharpClipboard** is a clipboard-monitoring library for .NET that listens to the system's clipboard entries,
 allowing developers to tap into the rich capabilities of determining the clipboard's contents at runtime.
@@ -12,9 +12,7 @@ Here's a screenshot and below a usage-preview of the library's features:
 # Installation
 To install via the NuGet Package Manager Console, type:
 
-> `Install-Package SharpClipboard -Version 3.0.0`
-
-You can also [download](https://github.com/Willy-Kimura/SharpClipboard/releases/download/v3.0.0/SharpClipboard.dll) the assembly and add it to Visual Studio's Toolbox; plus not forgetting its [documentation](https://github.com/Willy-Kimura/SharpClipboard/releases/download/v3.0.0/SharpClipboard.xml).
+> `Install-Package SharpClipboard -Version 3.1.0`
 
 # Features
 Here's a comprehensive list of the features available:
@@ -25,6 +23,7 @@ Here's a comprehensive list of the features available:
 - Option to control the type of content to be monitored, e.g. **text** only, **text** and **images** only.
 - Ability to capture the background application's details from where the clipboard's contents were cut/copied. 
 *For example:*
+  
     ```c#
     private void ClipboardChanged(Object sender, SharpClipboard.ClipboardChangedEventArgs e)
     {
@@ -121,5 +120,3 @@ To manually parse the content after a cut/copy has been detected, you can use th
     }
 ```
 
-## Donate
-Hey, you can always [buy me a coffee](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DJ8D9CE8BWA3J&source=url) if this component library ([or others](https://github.com/Willy-Kimura/BetterFolderBrowser)) has been of value to you.
