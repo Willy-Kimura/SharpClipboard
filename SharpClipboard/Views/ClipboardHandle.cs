@@ -140,7 +140,25 @@ namespace WK.Libraries.SharpClipboardNS.Views
                     // If clipboard-monitoring is enabled, proceed to listening.
                     if (Ready && SharpClipboardInstance.MonitorClipboard)
                     {
-                        IDataObject dataObj = Clipboard.GetDataObject();
+                        IDataObject dataObj;
+
+                        int retryCount = 0;
+                        while (true)
+                        {
+                            try
+                            {
+                                dataObj = Clipboard.GetDataObject();
+                                break;
+                            }
+                            // Crashes when data is deleted from clipboard without retry
+                            catch (ExternalException)
+                            {
+                                if (++retryCount > 5)
+                                    throw;
+
+                                System.Threading.Thread.Sleep(100);
+                            }
+                        }
 
                         // Determines whether a file/files have been cut/copied.
                         if ((SharpClipboardInstance.ObservableFormats.Files == true) &&
