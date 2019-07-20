@@ -12,7 +12,7 @@ Here's a screenshot and below a usage-preview of the library's features:
 # Installation
 To install via the NuGet Package Manager Console, type:
 
-> `Install-Package SharpClipboard -Version 3.1.0`
+> `Install-Package SharpClipboard`
 
 # Features
 Here's a comprehensive list of the features available:
@@ -119,4 +119,3 @@ To manually parse the content after a cut/copy has been detected, you can use th
         // or other complex types too.
     }
 ```
-

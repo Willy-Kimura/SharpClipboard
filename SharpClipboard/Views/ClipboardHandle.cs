@@ -218,7 +218,8 @@ namespace WK.Libraries.SharpClipboardNS.Views
                                 new SourceApplication(GetForegroundWindow(), SharpClipboardInstance.ForegroundWindowHandle(),
                                 GetApplicationName(), GetActiveWindowTitle(), GetApplicationPath()));
                         }
-                        else
+                        else if ((SharpClipboardInstance.ObservableFormats.Others == true) &&
+                                !(dataObj.GetDataPresent(DataFormats.FileDrop)))
                         {
                             SharpClipboardInstance.Invoke(dataObj, SharpClipboard.ContentTypes.Other,
                                 new SourceApplication(GetForegroundWindow(), SharpClipboardInstance.ForegroundWindowHandle(),
