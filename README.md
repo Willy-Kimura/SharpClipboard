@@ -1,5 +1,5 @@
 # SharpClipboard
-[![sc-nuget](https://img.shields.io/badge/NuGet-3.3.0-brightgreen.svg)](https://www.nuget.org/packages/SharpClipboard/) [![sc-donate](/Assets/Donate-PayPal-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DJ8D9CE8BWA3J&source=url)
+[![sc-nuget](https://img.shields.io/badge/NuGet-3.3.0-brightgreen.svg)](https://www.nuget.org/packages/SharpClipboard/) [![wk-donate](https://img.shields.io/badge/BuyMeACoffee-Donate-orange.svg)](https://www.buymeacoffee.com/willykimura)
 
 **SharpClipboard** is a clipboard-monitoring library for .NET that listens to the system's clipboard entries,
 allowing developers to tap into the rich capabilities of determining the clipboard's contents at runtime.
