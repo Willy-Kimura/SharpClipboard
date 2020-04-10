@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("SharpClipboard - A library for anonymously monitoring clipboard entries.")]
-[assembly: AssemblyDescription("A library for anonymously monitoring clipboard entries.")]
+[assembly: AssemblyDescription("SharpClipboard is a clipboard-monitoring library for .NET that listens to the system's clipboard entries, allowing developers to tap into the rich capabilities of determining the clipboard's contents at runtime.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Willy Kimura")]
 [assembly: AssemblyProduct("SharpClipboard - Clipboard Monitoring Library")]
-[assembly: AssemblyCopyright("Copyright ©  2019, Willy Kimura.")]
+[assembly: AssemblyCopyright("Copyright ©  2020, Willy Kimura.")]
 [assembly: AssemblyTrademark("A product of Willy Kimura.")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("3.0.0.0")]
-[assembly: AssemblyFileVersion("3.0.0.0")]
+[assembly: AssemblyVersion("3.4.0.0")]
+[assembly: AssemblyFileVersion("3.4.0.0")]

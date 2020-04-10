@@ -8,17 +8,28 @@ using WK.Libraries.SharpClipboardNS;
 
 namespace SharpClipboardPreview.Tests
 {
+    /// <summary>
+    /// The main application window.
+    /// </summary>
     public partial class MainForm : Form
     {
+        #region Constructor
+
         public MainForm()
         {
             InitializeComponent();
-            
+
+            // Assign the various checkboxes to enable/disable 
+            // the supported clipboard formats respectively.
             chkMonitorClipboard.Checked = sharpClipboard1.MonitorClipboard;
             chkObserveTexts.Checked = sharpClipboard1.ObservableFormats.Texts;
             chkObserveFiles.Checked = sharpClipboard1.ObservableFormats.Files;
             chkObserveImages.Checked = sharpClipboard1.ObservableFormats.Images;
         }
+
+        #endregion
+
+        #region Events
 
         private void sharpClipboard1_MonitorClipboardChanged(object sender, EventArgs e)
         {
@@ -65,8 +76,10 @@ namespace SharpClipboardPreview.Tests
             }
             else if (e.ContentType == SharpClipboard.ContentTypes.Files)
             {
+                // Declare variable to add the list of copied files.
                 List<string> files = new List<string>();
 
+                // Add all copied files to the declared variable.
                 foreach (string file in sharpClipboard1.ClipboardFiles)
                 {
                     files.Add(Path.GetFileName(file));
@@ -74,6 +87,7 @@ namespace SharpClipboardPreview.Tests
 
                 Debug.WriteLine(sharpClipboard1.ClipboardFiles.ToArray());
 
+                // Add all copied files to the files ListBox.
                 lstCopiedFiles.Items.Clear();
                 lstCopiedFiles.Items.AddRange(files.ToArray());
                 
@@ -86,9 +100,9 @@ namespace SharpClipboardPreview.Tests
                 // Do something with 'e.Content' or alternatively
                 // 'sharpClipboard1.ClipboardObject' property here...
 
-                // A great example here is when a user has copied an Outlook Mail item.
-                // Such an item will be of a complex object-type format which can be parsed and
-                // examined by using the 'Microsoft.Office.Interop.Outlook' namespace features.
+                // A great example is when a user has copied an Outlook Mail item.
+                // Such an item will be of a complex object-type that can be parsed and
+                // examined using the 'Microsoft.Office.Interop.Outlook' namespace features.
                 // See here: https://stackoverflow.com/questions/25375367/how-to-copy-mailitem-in-outlook-c-sharp
 
                 // You can however still use the 'ClipboardText' property if you
@@ -96,10 +110,20 @@ namespace SharpClipboardPreview.Tests
                 txtCopiedTexts.Text = sharpClipboard1.ClipboardText.ToString();
             }
 
-            // Add a TextBox, uncomment the lines below and run.
-            // -------------------------------------------------
-            // textBox1.Text = $"Name: {e.SourceApplication.Name}, Title: {e.SourceApplication.Title}, " +
-            //                 $"ID: {e.SourceApplication.ID}, Path: {e.SourceApplication.Path}";
+            // If you wish to get details of the application from where 
+            // any text, file, image or other objects were cut/copied, 
+            // simply add a TextBox and uncomment the lines below.
+            // --------------------------------------------------------
+            // textBox1.Text = 
+            //     $"Name: {e.SourceApplication.Name} \n" +
+            //     $"Title: {e.SourceApplication.Title} \n" +
+            //     $"ID: {e.SourceApplication.ID} \n" +
+            //     $"Handle: {e.SourceApplication.Handle} \n" +
+            //     $"Path: {e.SourceApplication.Path}";
+            // --------------------------------------------------------
+            // This could come in-handy if you're developing a clipboard-monitoring app.
         }
+
+        #endregion
     }
 }
