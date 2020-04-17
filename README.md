@@ -23,11 +23,11 @@ Here's a comprehensive list of the features available:
 
 - Provides support for multi-instance clipboard monitoring.
 
-- Ability to detect clipboard content in various formats, namely **text**, **images**, **files**, and **other complex types**.
+- Ability to detect clipboard content in various formats: **text**, **images**, **files**, and **other complex types**.
 
 - Option to control the type of content to be monitored, e.g. **text** only, **text** and **images** only.
 
-- Ability to capture the background application's details from where the clipboard's contents were cut/copied. 
+- Ability to capture the background application's details from where the clipboard's contents were cut/copied.
 *For example:*
   
     ```c#
