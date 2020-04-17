@@ -13,7 +13,7 @@
     <PackageProjectUrl>https://github.com/Willy-Kimura/SharpClipboard</PackageProjectUrl>
     <PackageIconUrl></PackageIconUrl>
     <Description>SharpClipboard is a clipboard-monitoring library for .NET that listens to the system's clipboard entries, allowing developers to tap into the rich capabilities of determining the clipboard's contents at runtime.</Description>
-    <PackageReleaseNotes>Added support for .NET Core 3.0.</PackageReleaseNotes>
+    <PackageReleaseNotes>Added support for clipboard monitoring with multiple instances.</PackageReleaseNotes>
     <Copyright>© 2020 Willy Kimura</Copyright>
     <PackageTags>c# vb clipboard monitor clipboard-monitor clipboard-manager clipboard-history</PackageTags>
     <PackageIcon>clipboard.png</PackageIcon>
@@ -33,7 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\Assets\clipboard.png" Pack="true" PackagePath=""/>
+    <None Include="..\Assets\clipboard.png" Pack="true" PackagePath="" />
   </ItemGroup>
 
   <ItemGroup>

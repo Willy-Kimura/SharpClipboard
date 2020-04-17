@@ -304,16 +304,16 @@
         </member>
         <member name="T:WK.Libraries.SharpClipboardNS.Views.ClipboardHandle">
             <summary>
-            This window acts as a handle to the clipboard-monitoring process and 
-            thus will be launched in the background once the component has started 
-            the monitoring service. However, it won't be visible to anyone even via 
+            This window acts as a handle to the clipboard-monitoring process and
+            thus will be launched in the background once the component has started
+            the monitoring service. However, it won't be visible to anyone even via
             the Task Manager.
             </summary>
         </member>
         <member name="P:WK.Libraries.SharpClipboardNS.Views.ClipboardHandle.Ready">
             <summary>
             Checks if the handle is ready to monitor the system clipboard.
-            It is used to provide a final value for use whenever the property 
+            It is used to provide a final value for use whenever the property
             'ObserveLastEntry' is enabled.
             </summary>
         </member>

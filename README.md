@@ -18,9 +18,15 @@ To install via the [NuGet Package Manager](https://www.nuget.org/packages/SharpC
 Here's a comprehensive list of the features available:
 
 - Built as a component making it accessible in Design Mode.
+
 - Silently monitors the system clipboard uninterrupted; can also be disabled while running.
+
+- Provides support for multi-instance clipboard monitoring.
+
 - Ability to detect clipboard content in various formats, namely **text**, **images**, **files**, and **other complex types**.
+
 - Option to control the type of content to be monitored, e.g. **text** only, **text** and **images** only.
+
 - Ability to capture the background application's details from where the clipboard's contents were cut/copied. 
 *For example:*
   
@@ -115,10 +121,10 @@ To manually parse the content after a cut/copy has been detected, you can use th
 
         // or files...
         List<string> files = (List<string>)e.Content;
-
+		
         // or other complex types too.
+        // Person p = JsonConvert.DeserializeObject<Person>(e.Content);
     }
 ```
 
 *Made with* 💛 *by* [*Willy Kimura*]([https://github.com/Willy-Kimura)
-

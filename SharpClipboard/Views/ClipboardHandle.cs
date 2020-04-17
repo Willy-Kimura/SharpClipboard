@@ -218,6 +218,8 @@ namespace WK.Libraries.SharpClipboardNS.Views
                                 new SourceApplication(GetForegroundWindow(), SharpClipboardInstance.ForegroundWindowHandle(),
                                 GetApplicationName(), GetActiveWindowTitle(), GetApplicationPath()));
                         }
+
+                        // Determines whether a complex object has been cut/copied.
                         else if ((SharpClipboardInstance.ObservableFormats.Others == true) &&
                                 !(dataObj.GetDataPresent(DataFormats.FileDrop)))
                         {
@@ -227,6 +229,7 @@ namespace WK.Libraries.SharpClipboardNS.Views
                         }
                     }
 
+                    // Provides support for multi-instance clipboard monitoring.
                     SendMessage(_chainedWnd, m.Msg, m.WParam, m.LParam);
 
                     break;
