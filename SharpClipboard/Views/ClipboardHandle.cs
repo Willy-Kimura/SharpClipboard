@@ -3,13 +3,13 @@
  * ---------------------------------------+
  * Please preserve this window.
  * It acts as the message-processing
- * handle with regards to the clipboard. 
+ * handle with regards to the clipboard.
  *
  * The window however will not be visible
- * to the users both via the Taskbar or 
+ * to the users both via the Taskbar or
  * the Task Manager so don't you worry :)
  * ---------------------------------------+
- * 
+ *
  */
 
 
@@ -24,9 +24,9 @@ using System.Runtime.InteropServices;
 namespace WK.Libraries.SharpClipboardNS.Views
 {
     /// <summary>
-    /// This window acts as a handle to the clipboard-monitoring process and 
-    /// thus will be launched in the background once the component has started 
-    /// the monitoring service. However, it won't be visible to anyone even via 
+    /// This window acts as a handle to the clipboard-monitoring process and
+    /// thus will be launched in the background once the component has started
+    /// the monitoring service. However, it won't be visible to anyone even via
     /// the Task Manager.
     /// </summary>
     public partial class ClipboardHandle : Form
@@ -43,7 +43,7 @@ namespace WK.Libraries.SharpClipboardNS.Views
         #region Fields
 
         private IntPtr _chainedWnd;
-        
+
         const int WM_DRAWCLIPBOARD = 0x0308;
         const int WM_CHANGECBCHAIN = 0x030D;
 
@@ -59,7 +59,7 @@ namespace WK.Libraries.SharpClipboardNS.Views
 
         /// <summary>
         /// Checks if the handle is ready to monitor the system clipboard.
-        /// It is used to provide a final value for use whenever the property 
+        /// It is used to provide a final value for use whenever the property
         /// 'ObserveLastEntry' is enabled.
         /// </summary>
         [Browsable(false)]
@@ -82,7 +82,7 @@ namespace WK.Libraries.SharpClipboardNS.Views
         /// </summary>
         [Browsable(false)]
         internal SharpClipboard SharpClipboardInstance { get; set; }
-        
+
         #endregion
 
         #region Methods
@@ -112,8 +112,8 @@ namespace WK.Libraries.SharpClipboardNS.Views
         protected override CreateParams CreateParams
         {
             get {
-                
-                
+
+
                 var cp = base.CreateParams;
 
                 // Turn on WS_EX_TOOLWINDOW.
@@ -123,7 +123,7 @@ namespace WK.Libraries.SharpClipboardNS.Views
 
             }
         }
-        
+
         /// <summary>
         /// This is the main clipboard detection method.
         /// Algorithmic customizations are most welcome.
@@ -152,9 +152,9 @@ namespace WK.Libraries.SharpClipboardNS.Views
                             }
                             catch (ExternalException)
                             {
-                                // Crashes when large data is copied from clipboard 
-                                // without retries. We'll therefore need to do a 5-step 
-                                // retry count to cut some slack for the operation to 
+                                // Crashes when large data is copied from clipboard
+                                // without retries. We'll therefore need to do a 5-step
+                                // retry count to cut some slack for the operation to
                                 // fully complete and ensure that the data is captured;
                                 // if all else fails, then throw an exception.
                                 // You may extend the retries if need be.
@@ -179,7 +179,7 @@ namespace WK.Libraries.SharpClipboardNS.Views
                             {
                                 SharpClipboardInstance.ClipboardObject = dataObj;
                                 SharpClipboardInstance.ClipboardText = dataObj.GetData(DataFormats.UnicodeText).ToString();
-                            
+
                                 SharpClipboardInstance.Invoke(dataObj, SharpClipboard.ContentTypes.Other,
                                     new SourceApplication(GetForegroundWindow(), SharpClipboardInstance.ForegroundWindowHandle(),
                                     GetApplicationName(), GetActiveWindowTitle(), GetApplicationPath()));
@@ -196,7 +196,7 @@ namespace WK.Libraries.SharpClipboardNS.Views
                         }
 
                         // Determines whether text has been cut/copied.
-                        else if ((SharpClipboardInstance.ObservableFormats.Texts == true) && 
+                        else if ((SharpClipboardInstance.ObservableFormats.Texts == true) &&
                                  (dataObj.GetDataPresent(DataFormats.Text) || dataObj.GetDataPresent(DataFormats.UnicodeText)))
                         {
                             string capturedText = dataObj.GetData(DataFormats.UnicodeText).ToString();
@@ -208,7 +208,7 @@ namespace WK.Libraries.SharpClipboardNS.Views
                         }
 
                         // Determines whether an image has been cut/copied.
-                        else if ((SharpClipboardInstance.ObservableFormats.Images == true) && 
+                        else if ((SharpClipboardInstance.ObservableFormats.Images == true) &&
                                  (dataObj.GetDataPresent(DataFormats.Bitmap)))
                         {
                             Image capturedImage = dataObj.GetData(DataFormats.Bitmap) as Image;
@@ -226,6 +226,8 @@ namespace WK.Libraries.SharpClipboardNS.Views
                                 GetApplicationName(), GetActiveWindowTitle(), GetApplicationPath()));
                         }
                     }
+
+                    SendMessage(_chainedWnd, m.Msg, m.WParam, m.LParam);
 
                     break;
 
@@ -259,7 +261,7 @@ namespace WK.Libraries.SharpClipboardNS.Views
         #endregion
 
         #region Source App Management
-        
+
         #region Win32 Externals
 
         [DllImport("user32.dll")]

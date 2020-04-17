@@ -5,7 +5,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>3.4.0</Version>
+    <Version>3.5.0</Version>
     <Authors>WillyKimura</Authors>
     <Company />
     <Product />
@@ -30,6 +30,10 @@
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\Assets\clipboard.png" Pack="true" PackagePath=""/>
   </ItemGroup>
 
   <ItemGroup>
