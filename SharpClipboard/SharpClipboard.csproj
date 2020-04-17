@@ -45,14 +45,4 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-<<<<<<< HEAD
-=======
-  <ItemGroup>
-    <None Include="..\Assets\clipboard.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
->>>>>>> upstream/master
-
 </Project>
