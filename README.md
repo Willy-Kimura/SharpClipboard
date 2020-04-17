@@ -1,5 +1,5 @@
 # SharpClipboard
-[![sc-nuget](https://img.shields.io/badge/NuGet-3.3.0-brightgreen.svg)](https://www.nuget.org/packages/SharpClipboard/) [![wk-donate](https://img.shields.io/badge/BuyMeACoffee-Donate-orange.svg)](https://www.buymeacoffee.com/willykimura)
+[![nuget-downloads](https://img.shields.io/nuget/dt/SharpClipboard?label=Downloads)](https://www.nuget.org/packages/SharpClipboard/) [![wk-donate](https://img.shields.io/badge/BuyMeACoffee-Donate-orange.svg)](https://www.buymeacoffee.com/willykimura)
 
 **SharpClipboard** is a clipboard-monitoring library for .NET that listens to the system's clipboard entries,
 allowing developers to tap into the rich capabilities of determining the clipboard's contents at runtime.
@@ -120,8 +120,5 @@ To manually parse the content after a cut/copy has been detected, you can use th
     }
 ```
 
-### Donate
+*Made with* 💛 *by* [*Willy Kimura*]([https://github.com/Willy-Kimura)
 
-If you really like my projects and want to support me, consider donating to me via [BuyMeACoffee](https://www.buymeacoffee.com/willykimura). All donations are optional and are greatly appreciated. 🙏
-
-*Made with* 😊 *by* [*Willy Kimura*]([https://github.com/Willy-Kimura).

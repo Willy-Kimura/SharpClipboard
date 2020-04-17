@@ -11,18 +11,19 @@
     <Product />
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/Willy-Kimura/SharpClipboard</PackageProjectUrl>
-    <PackageIconUrl>https://raw.githubusercontent.com/Willy-Kimura/SharpClipboard/master/Assets/clipboard.png</PackageIconUrl>
+    <PackageIconUrl></PackageIconUrl>
     <Description>SharpClipboard is a clipboard-monitoring library for .NET that listens to the system's clipboard entries, allowing developers to tap into the rich capabilities of determining the clipboard's contents at runtime.</Description>
-    <PackageReleaseNotes>Added supportfor .NET Core 3.0</PackageReleaseNotes>
+    <PackageReleaseNotes>Added support for .NET Core 3.0.</PackageReleaseNotes>
     <Copyright>© 2020 Willy Kimura</Copyright>
     <PackageTags>c# vb clipboard monitor clipboard-monitor clipboard-manager clipboard-history</PackageTags>
+    <PackageIcon>clipboard.png</PackageIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
-    <DocumentationFile>C:\Users\finkc\source\repos\SharpClipboard\SharpClipboard\SharpClipboard.xml</DocumentationFile>
+    <DocumentationFile>C:\Users\VitalRay\source\repos\libraries\SharpClipboard\SharpClipboard\SharpClipboard.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Release'">
-    <DocumentationFile>C:\Users\finkc\source\repos\SharpClipboard\SharpClipboard\SharpClipboard.xml</DocumentationFile>
+    <DocumentationFile>C:\Users\VitalRay\source\repos\libraries\SharpClipboard\SharpClipboard\SharpClipboard.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net20' ">
@@ -44,5 +45,14 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+<<<<<<< HEAD
+=======
+  <ItemGroup>
+    <None Include="..\Assets\clipboard.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+>>>>>>> upstream/master
 
 </Project>
