@@ -10,7 +10,7 @@ Here's a screenshot and below a usage-preview of the library's features:
 ![sc-usage](/Assets/sharpclipboard-usage-01.gif)
 
 # Installation
-To install via the [NuGet Package Manager](https://www.nuget.org/packages/SharpClipboard/) Console, type:
+To install via the [NuGet Package Manager](https://www.nuget.org/packages/SharpClipboard/) Console, run:
 
 > `Install-Package SharpClipboard`
 
