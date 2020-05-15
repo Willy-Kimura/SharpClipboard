@@ -52,6 +52,9 @@ namespace WK.Libraries.SharpClipboardNS
         /// <summary>
         /// Initializes a new instance of <see cref="SharpClipboard"/>.
         /// </summary>
+        /// <param name="container">
+        /// The container hosting the component.
+        /// </param>
         public SharpClipboard(IContainer container)
         {
             container.Add(this);
@@ -64,7 +67,7 @@ namespace WK.Libraries.SharpClipboardNS
         #endregion
 
         #region Fields
-    
+
         private bool _monitorClipboard;
         private bool _observeLastEntry;
 
@@ -105,7 +108,7 @@ namespace WK.Libraries.SharpClipboardNS
         #endregion
 
         #region Properties
-    
+        
         #region Browsable
 
         /// <summary>
@@ -212,6 +215,16 @@ namespace WK.Libraries.SharpClipboardNS
         /// </summary>
         [Browsable(false)]
         public Image ClipboardImage { get; internal set; }
+
+        /// <summary>
+        /// Lets you change the invisible clipboard-window-handle's title 
+        /// that is designed to receive broadcasted clipboard messages. This is 
+        /// however unnecessary for normal users but may be essential if you're 
+        /// working under special circumstances that require supervision.
+        /// The window will however remain hidden from all users.
+        /// </summary>
+        [Browsable(false)]
+        public static string HandleCaption { get; set; } = string.Empty;
 
         #endregion
 
@@ -388,8 +401,9 @@ namespace WK.Libraries.SharpClipboardNS
         #region Private
 
         /// <summary>
-        /// This initiates a timer that then begins
-        /// the clipboard-monitoring service.
+        /// This initiates a Timer that then begins the 
+        /// clipboard-monitoring service. The Timer will 
+        /// auto-shutdown once the service has started.
         /// </summary>
         private void OnLoad(object sender, EventArgs e)
         {

@@ -61,7 +61,7 @@ namespace SharpClipboardPreview.Tests
             if (e.ContentType == SharpClipboard.ContentTypes.Text)
             {
                 txtCopiedTexts.Text = sharpClipboard1.ClipboardText;
-
+                
                 // Alternatively, you can use:
                 // ---------------------------
                 // txtCopiedTexts.Text = (string)e.Content;

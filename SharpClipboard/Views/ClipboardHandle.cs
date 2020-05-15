@@ -1,14 +1,16 @@
 ﻿/*
  * The SharpClipboard Handle.
- * ---------------------------------------+
+ * ---------------------------------------------+
  * Please preserve this window.
- * It acts as the message-processing
- * handle with regards to the clipboard.
+ * It acts as the core message-processing handle 
+ * for receiving broadcasted clipboard messages.
  *
- * The window however will not be visible
- * to the users both via the Taskbar or
- * the Task Manager so don't you worry :)
- * ---------------------------------------+
+ * The window however will not be visible to  
+ * end users both via the Taskbar and the Task-
+ * Manager so no need to panic. At the very least 
+ * you may change the window's title using the 
+ * static property 'SharpClipboard.HandleCaption'.
+ * ---------------------------------------------+
  *
  */
 
@@ -40,8 +42,9 @@ namespace WK.Libraries.SharpClipboardNS.Views
         {
             InitializeComponent();
 
-            // [Reserved] You may set the window title to the running application name.
-            // Text = Application.ProductName;
+            // [optional] Applies the default window title.
+            // This may only be necessary for forensic purposes.
+            Text = SharpClipboard.HandleCaption;
         }
 
         #endregion
@@ -349,10 +352,11 @@ namespace WK.Libraries.SharpClipboardNS.Views
         {
             // Start listening for clipboard changes.
             _chainedWnd = SetClipboardViewer(this.Handle);
+
             Ready = true;
         }
 
-        private void OnFormClosing(object sender, FormClosingEventArgs e)
+        private void OnClose(object sender, FormClosingEventArgs e)
         {
             // Stop listening to clipboard changes.
             ChangeClipboardChain(this.Handle, _chainedWnd);

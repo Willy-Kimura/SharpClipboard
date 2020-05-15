@@ -35,6 +35,9 @@
             <summary>
             Initializes a new instance of <see cref="T:WK.Libraries.SharpClipboardNS.SharpClipboard"/>.
             </summary>
+            <param name="container">
+            The container hosting the component.
+            </param>
         </member>
         <member name="T:WK.Libraries.SharpClipboardNS.SharpClipboard.ContentTypes">
             <summary>
@@ -111,6 +114,15 @@
         <member name="P:WK.Libraries.SharpClipboardNS.SharpClipboard.ClipboardImage">
             <summary>
             Gets the currently cut/copied clipboard image.
+            </summary>
+        </member>
+        <member name="P:WK.Libraries.SharpClipboardNS.SharpClipboard.HandleCaption">
+            <summary>
+            Lets you change the invisible clipboard-window-handle's title 
+            that is designed to receive broadcasted clipboard messages. This is 
+            however unnecessary for normal users but may be essential if you're 
+            working under special circumstances that require supervision.
+            The window will however remain hidden from all users.
             </summary>
         </member>
         <member name="M:WK.Libraries.SharpClipboardNS.SharpClipboard.ForegroundWindowHandle">
@@ -199,8 +211,9 @@
         </member>
         <member name="M:WK.Libraries.SharpClipboardNS.SharpClipboard.OnLoad(System.Object,System.EventArgs)">
             <summary>
-            This initiates a timer that then begins
-            the clipboard-monitoring service.
+            This initiates a Timer that then begins the 
+            clipboard-monitoring service. The Timer will 
+            auto-shutdown once the service has started.
             </summary>
         </member>
         <member name="T:WK.Libraries.SharpClipboardNS.SharpClipboard.WKComponentActionList">
