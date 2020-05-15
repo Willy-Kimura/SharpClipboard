@@ -219,25 +219,6 @@ namespace WK.Libraries.SharpClipboardNS
 
         #region Methods
 
-        #region Private
-
-        private void SetDefaults()
-        {
-            _handle.SharpClipboardInstance = this;
-
-            _timer.Enabled = true;
-            _timer.Interval = 1000;
-            _timer.Tick += OnLoad;
-        
-            MonitorClipboard = true;
-            ObserveLastEntry = true;
-        }
-
-        [DllImport("user32.dll")]
-        static extern IntPtr GetForegroundWindow();
-
-        #endregion
-
         #region Public
 
         /// <summary>
@@ -267,6 +248,25 @@ namespace WK.Libraries.SharpClipboardNS
             _handle.Close();
         }
 
+        #endregion
+
+        #region Private
+
+        /// <summary>
+        /// Apply library-default settings and launch code.
+        /// </summary>
+        private void SetDefaults()
+        {
+            _handle.SharpClipboardInstance = this;
+
+            _timer.Enabled = true;
+            _timer.Interval = 1000;
+            _timer.Tick += OnLoad;
+        
+            MonitorClipboard = true;
+            ObserveLastEntry = true;
+        }
+
         /// <summary>
         /// Invokes the <see cref="ClipboardChanged"/> event with formal parameters.
         /// </summary>
@@ -276,6 +276,12 @@ namespace WK.Libraries.SharpClipboardNS
         {
             ClipboardChanged?.Invoke(this, new ClipboardChangedEventArgs(content, type, source));
         }
+
+        /// <summary>
+        /// Gets the foreground or currently active window handle.
+        /// </summary>
+        [DllImport("user32.dll")]
+        static extern IntPtr GetForegroundWindow();
 
         #endregion
 

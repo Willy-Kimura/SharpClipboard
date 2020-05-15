@@ -131,12 +131,22 @@
             shuts the system clipboard-access handle.
             </summary>
         </member>
+        <member name="M:WK.Libraries.SharpClipboardNS.SharpClipboard.SetDefaults">
+            <summary>
+            Apply library-default settings and launch code.
+            </summary>
+        </member>
         <member name="M:WK.Libraries.SharpClipboardNS.SharpClipboard.Invoke(System.Object,WK.Libraries.SharpClipboardNS.SharpClipboard.ContentTypes,WK.Libraries.SharpClipboardNS.SourceApplication)">
             <summary>
             Invokes the <see cref="E:WK.Libraries.SharpClipboardNS.SharpClipboard.ClipboardChanged"/> event with formal parameters.
             </summary>
             <param name="content">The current clipboard content.</param>
             <param name="type">The current clipboard content-type.</param>
+        </member>
+        <member name="M:WK.Libraries.SharpClipboardNS.SharpClipboard.GetForegroundWindow">
+            <summary>
+            Gets the foreground or currently active window handle.
+            </summary>
         </member>
         <member name="E:WK.Libraries.SharpClipboardNS.SharpClipboard.ClipboardChanged">
             <summary>
