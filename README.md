@@ -15,8 +15,6 @@ To install via the [NuGet Package Manager](https://www.nuget.org/packages/SharpC
 > `Install-Package SharpClipboard`
 
 # Features
-Here's a comprehensive list of the features available:
-
 - Built as a component making it accessible in Design Mode.
 
 - Silently monitors the system clipboard uninterrupted; can also be disabled while running.
