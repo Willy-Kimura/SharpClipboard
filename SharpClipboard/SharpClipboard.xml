@@ -26,6 +26,16 @@
             detecting any copied/cut data and the type of data it is.
             </summary>
         </member>
+        <member name="M:WK.Libraries.SharpClipboardNS.SharpClipboard.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:WK.Libraries.SharpClipboardNS.SharpClipboard"/>.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.SharpClipboardNS.SharpClipboard.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Initializes a new instance of <see cref="T:WK.Libraries.SharpClipboardNS.SharpClipboard"/>.
+            </summary>
+        </member>
         <member name="T:WK.Libraries.SharpClipboardNS.SharpClipboard.ContentTypes">
             <summary>
             Provides a list of the supported clipboard content types.
@@ -308,6 +318,11 @@
             thus will be launched in the background once the component has started
             the monitoring service. However, it won't be visible to anyone even via
             the Task Manager.
+            </summary>
+        </member>
+        <member name="M:WK.Libraries.SharpClipboardNS.Views.ClipboardHandle.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:WK.Libraries.SharpClipboardNS.Views.ClipboardHandle"/>.
             </summary>
         </member>
         <member name="P:WK.Libraries.SharpClipboardNS.Views.ClipboardHandle.Ready">

@@ -33,9 +33,15 @@ namespace WK.Libraries.SharpClipboardNS.Views
     {
         #region Constructor
 
+        /// <summary>
+        /// Initializes a new instance of <see cref="ClipboardHandle"/>.
+        /// </summary>
         public ClipboardHandle()
         {
             InitializeComponent();
+
+            // [Reserved] You may set the window title to the running application name.
+            // Text = Application.ProductName;
         }
 
         #endregion

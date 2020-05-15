@@ -33,7 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\Assets\clipboard.png" Pack="true" PackagePath="" />
+    <None Include="..\Assets\clipboard.png" Pack="true" PackagePath="" Link="Assets\clipboard.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -48,5 +48,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\" />
   </ItemGroup>
 </Project>

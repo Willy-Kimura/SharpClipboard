@@ -39,6 +39,9 @@ namespace WK.Libraries.SharpClipboardNS
     {
         #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance of <see cref="SharpClipboard"/>.
+        /// </summary>
         public SharpClipboard()
         {
             InitializeComponent();
@@ -46,6 +49,9 @@ namespace WK.Libraries.SharpClipboardNS
             SetDefaults();
         }
 
+        /// <summary>
+        /// Initializes a new instance of <see cref="SharpClipboard"/>.
+        /// </summary>
         public SharpClipboard(IContainer container)
         {
             container.Add(this);

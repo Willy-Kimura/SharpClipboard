@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2020
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpClipboard", "SharpClipboard\SharpClipboard.csproj", "{005C3326-D638-4113-AEBB-A83433CC015E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpClipboard", "SharpClipboard\SharpClipboard.csproj", "{005C3326-D638-4113-AEBB-A83433CC015E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpClipboard.Tests", "SharpCliboard.Tests\SharpClipboard.Tests.csproj", "{86F8EAC7-259D-4A2F-842D-AA93163293C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpClipboard.Tests.WinForms", "SharpCliboard.Tests\SharpClipboard.Tests.WinForms.csproj", "{86F8EAC7-259D-4A2F-842D-AA93163293C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpClipboard.Tests.NetCoreWinForms", "SharpClipboard.Tests.NetCoreWinForms\SharpClipboard.Tests.NetCoreWinForms.csproj", "{D73E5EB1-DC2F-46E2-A30D-D76ECF2C4A07}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{86F8EAC7-259D-4A2F-842D-AA93163293C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86F8EAC7-259D-4A2F-842D-AA93163293C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86F8EAC7-259D-4A2F-842D-AA93163293C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D73E5EB1-DC2F-46E2-A30D-D76ECF2C4A07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D73E5EB1-DC2F-46E2-A30D-D76ECF2C4A07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D73E5EB1-DC2F-46E2-A30D-D76ECF2C4A07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D73E5EB1-DC2F-46E2-A30D-D76ECF2C4A07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
