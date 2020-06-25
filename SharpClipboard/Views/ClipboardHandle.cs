@@ -174,68 +174,81 @@ namespace WK.Libraries.SharpClipboardNS.Views
                             }
                         }
 
-                        // Determines whether a file/files have been cut/copied.
-                        if ((SharpClipboardInstance.ObservableFormats.Files == true) &&
-                            (dataObj.GetDataPresent(DataFormats.FileDrop)))
+                        try
                         {
-                            string[] capturedFiles = (string[])dataObj.GetData(DataFormats.FileDrop);
-
-                            // If the 'capturedFiles' string array persists as null, then it means
-                            // that the copied content is of a complex object-type since the file-drop
-                            // format is able to capture more-than-just-file content in the clipboard.
-                            // Assign the content its rightful content-type.
-                            if (capturedFiles == null)
+                            // Determines whether a file/files have been cut/copied.
+                            if ((SharpClipboardInstance.ObservableFormats.Files == true) &&
+                                (dataObj.GetDataPresent(DataFormats.FileDrop)))
                             {
-                                SharpClipboardInstance.ClipboardObject = dataObj;
-                                SharpClipboardInstance.ClipboardText = dataObj.GetData(DataFormats.UnicodeText).ToString();
+                                string[] capturedFiles = (string[])dataObj.GetData(DataFormats.FileDrop);
 
+                                // If the 'capturedFiles' string array persists as null, then this means
+                                // that the copied content is of a complex object type since the file-drop
+                                // format is able to capture more-than-just-file content in the clipboard.
+                                // Therefore assign the content its rightful type.
+                                if (capturedFiles == null)
+                                {
+                                    SharpClipboardInstance.ClipboardObject = dataObj;
+                                    SharpClipboardInstance.ClipboardText = dataObj.GetData(DataFormats.UnicodeText).ToString();
+
+                                    SharpClipboardInstance.Invoke(dataObj, SharpClipboard.ContentTypes.Other,
+                                        new SourceApplication(GetForegroundWindow(), SharpClipboardInstance.ForegroundWindowHandle(),
+                                        GetApplicationName(), GetActiveWindowTitle(), GetApplicationPath()));
+                                }
+                                else
+                                {
+                                    // Clear all existing files before update.
+                                    SharpClipboardInstance.ClipboardFiles.Clear();
+
+                                    SharpClipboardInstance.ClipboardFiles.AddRange(capturedFiles);
+                                    SharpClipboardInstance.ClipboardFile = capturedFiles[0];
+
+                                    SharpClipboardInstance.Invoke(capturedFiles, SharpClipboard.ContentTypes.Files,
+                                        new SourceApplication(GetForegroundWindow(), SharpClipboardInstance.ForegroundWindowHandle(),
+                                        GetApplicationName(), GetActiveWindowTitle(), GetApplicationPath()));
+                                }
+                            }
+
+                            // Determines whether text has been cut/copied.
+                            else if ((SharpClipboardInstance.ObservableFormats.Texts == true) &&
+                                     (dataObj.GetDataPresent(DataFormats.Text) || dataObj.GetDataPresent(DataFormats.UnicodeText)))
+                            {
+                                string capturedText = dataObj.GetData(DataFormats.UnicodeText).ToString();
+                                SharpClipboardInstance.ClipboardText = capturedText;
+
+                                SharpClipboardInstance.Invoke(capturedText, SharpClipboard.ContentTypes.Text,
+                                    new SourceApplication(GetForegroundWindow(), SharpClipboardInstance.ForegroundWindowHandle(),
+                                    GetApplicationName(), GetActiveWindowTitle(), GetApplicationPath()));
+                            }
+
+                            // Determines whether an image has been cut/copied.
+                            else if ((SharpClipboardInstance.ObservableFormats.Images == true) &&
+                                     (dataObj.GetDataPresent(DataFormats.Bitmap)))
+                            {
+                                Image capturedImage = dataObj.GetData(DataFormats.Bitmap) as Image;
+                                SharpClipboardInstance.ClipboardImage = capturedImage;
+
+                                SharpClipboardInstance.Invoke(capturedImage, SharpClipboard.ContentTypes.Image,
+                                    new SourceApplication(GetForegroundWindow(), SharpClipboardInstance.ForegroundWindowHandle(),
+                                    GetApplicationName(), GetActiveWindowTitle(), GetApplicationPath()));
+                            }
+
+                            // Determines whether a complex object has been cut/copied.
+                            else if ((SharpClipboardInstance.ObservableFormats.Others == true) &&
+                                    !(dataObj.GetDataPresent(DataFormats.FileDrop)))
+                            {
                                 SharpClipboardInstance.Invoke(dataObj, SharpClipboard.ContentTypes.Other,
                                     new SourceApplication(GetForegroundWindow(), SharpClipboardInstance.ForegroundWindowHandle(),
                                     GetApplicationName(), GetActiveWindowTitle(), GetApplicationPath()));
                             }
-                            else
-                            {
-                                SharpClipboardInstance.ClipboardFiles.AddRange(capturedFiles);
-                                SharpClipboardInstance.ClipboardFile = capturedFiles[0];
-
-                                SharpClipboardInstance.Invoke(capturedFiles, SharpClipboard.ContentTypes.Files,
-                                    new SourceApplication(GetForegroundWindow(), SharpClipboardInstance.ForegroundWindowHandle(),
-                                    GetApplicationName(), GetActiveWindowTitle(), GetApplicationPath()));
-                            }
                         }
-
-                        // Determines whether text has been cut/copied.
-                        else if ((SharpClipboardInstance.ObservableFormats.Texts == true) &&
-                                 (dataObj.GetDataPresent(DataFormats.Text) || dataObj.GetDataPresent(DataFormats.UnicodeText)))
+                        catch (AccessViolationException)
                         {
-                            string capturedText = dataObj.GetData(DataFormats.UnicodeText).ToString();
-                            SharpClipboardInstance.ClipboardText = capturedText;
-
-                            SharpClipboardInstance.Invoke(capturedText, SharpClipboard.ContentTypes.Text,
-                                new SourceApplication(GetForegroundWindow(), SharpClipboardInstance.ForegroundWindowHandle(),
-                                GetApplicationName(), GetActiveWindowTitle(), GetApplicationPath()));
+                            // Use-cases such as Remote Desktop usage might throw this exception. 
+                            // Applications with Administrative privileges can however override  
+                            // this exception when run in a production environment.
                         }
-
-                        // Determines whether an image has been cut/copied.
-                        else if ((SharpClipboardInstance.ObservableFormats.Images == true) &&
-                                 (dataObj.GetDataPresent(DataFormats.Bitmap)))
-                        {
-                            Image capturedImage = dataObj.GetData(DataFormats.Bitmap) as Image;
-                            SharpClipboardInstance.ClipboardImage = capturedImage;
-
-                            SharpClipboardInstance.Invoke(capturedImage, SharpClipboard.ContentTypes.Image,
-                                new SourceApplication(GetForegroundWindow(), SharpClipboardInstance.ForegroundWindowHandle(),
-                                GetApplicationName(), GetActiveWindowTitle(), GetApplicationPath()));
-                        }
-
-                        // Determines whether a complex object has been cut/copied.
-                        else if ((SharpClipboardInstance.ObservableFormats.Others == true) &&
-                                !(dataObj.GetDataPresent(DataFormats.FileDrop)))
-                        {
-                            SharpClipboardInstance.Invoke(dataObj, SharpClipboard.ContentTypes.Other,
-                                new SourceApplication(GetForegroundWindow(), SharpClipboardInstance.ForegroundWindowHandle(),
-                                GetApplicationName(), GetActiveWindowTitle(), GetApplicationPath()));
-                        }
+                        catch (NullReferenceException) { }
                     }
 
                     // Provides support for multi-instance clipboard monitoring.

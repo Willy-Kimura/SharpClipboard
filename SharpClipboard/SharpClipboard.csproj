@@ -13,7 +13,8 @@
     <PackageProjectUrl>https://github.com/Willy-Kimura/SharpClipboard</PackageProjectUrl>
     <PackageIconUrl></PackageIconUrl>
     <Description>SharpClipboard is a clipboard-monitoring library for .NET that listens to the system's clipboard entries, allowing developers to tap into the rich capabilities of determining the clipboard's contents at runtime.</Description>
-    <PackageReleaseNotes>Added the static property 'HandleCaption'.</PackageReleaseNotes>
+    <PackageReleaseNotes>- The 'ClipboardFiles' property will now be cleared upon copying files.
+- Prevented crashing when performing a clipboard operation in Remote Desktop environments.</PackageReleaseNotes>
     <Copyright>© 2020 Willy Kimura</Copyright>
     <PackageTags>c# vb clipboard monitor clipboard-monitor clipboard-manager clipboard-history</PackageTags>
     <PackageIcon>clipboard.png</PackageIcon>
