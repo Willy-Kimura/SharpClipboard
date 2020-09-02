@@ -26,9 +26,9 @@ To install via the [NuGet Package Manager](https://www.nuget.org/packages/SharpC
 - Option to control the type of content to be monitored, e.g. **text** only, **text** and **images** only.
 
 - Ability to capture the background application's details from where the clipboard's contents were cut/copied.
-*For example:*
-  
-    ```c#
+  *For example:*
+
+  ```c#
     private void ClipboardChanged(Object sender, SharpClipboard.ClipboardChangedEventArgs e)
     {
         // Gets the application's executable name.
@@ -40,7 +40,7 @@ To install via the [NuGet Package Manager](https://www.nuget.org/packages/SharpC
         // Gets the application's executable path.
         Debug.WriteLine(e.SourceApplication.Path);
     }
-    ```
+  ```
 # Usage
 If you prefer working with the Designer, simply add the library to Visual Studio's Toolbox and use the
 *Properties* window to change its options:

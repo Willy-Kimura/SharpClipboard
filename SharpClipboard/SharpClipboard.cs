@@ -137,9 +137,9 @@ namespace WK.Libraries.SharpClipboardNS
         /// </summary>
         [Category("#Clipboard: Behaviour")]
         [Description("When set to true, the last cut/copied clipboard item will " +
-                     "not be auto-picked once monitoring is enabled. However when " +
-                     "set to false, the last cut/copied clipboard item will be " +
-                     "auto-picked once monitoring is enabled.")]
+                     "be auto-picked once monitoring is enabled. However when " +
+                     "set to false, the last cut/copied clipboard item will not " +
+                     "be auto-picked once monitoring is enabled.")]
         public bool ObserveLastEntry
         {
             get { return _observeLastEntry; }

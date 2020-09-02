@@ -71,9 +71,10 @@ namespace SharpClipboardPreview.Tests
             this.chkMonitorClipboard.AutoSize = true;
             this.chkMonitorClipboard.Checked = true;
             this.chkMonitorClipboard.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkMonitorClipboard.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F);
+            this.chkMonitorClipboard.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.chkMonitorClipboard.ForeColor = System.Drawing.Color.Black;
-            this.chkMonitorClipboard.Location = new System.Drawing.Point(17, 33);
+            this.chkMonitorClipboard.Location = new System.Drawing.Point(20, 38);
+            this.chkMonitorClipboard.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.chkMonitorClipboard.Name = "chkMonitorClipboard";
             this.chkMonitorClipboard.Size = new System.Drawing.Size(138, 21);
             this.chkMonitorClipboard.TabIndex = 1;
@@ -84,9 +85,10 @@ namespace SharpClipboardPreview.Tests
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 15.75F);
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTitle.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblTitle.Location = new System.Drawing.Point(22, 14);
+            this.lblTitle.Location = new System.Drawing.Point(26, 16);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(155, 30);
             this.lblTitle.TabIndex = 3;
@@ -100,18 +102,20 @@ namespace SharpClipboardPreview.Tests
             this.panel1.Controls.Add(this.lblTitle);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(312, 397);
+            this.panel1.Size = new System.Drawing.Size(364, 458);
             this.panel1.TabIndex = 4;
             // 
             // lblOptions
             // 
             this.lblOptions.AutoSize = true;
-            this.lblOptions.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F);
+            this.lblOptions.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblOptions.ForeColor = System.Drawing.Color.Black;
-            this.lblOptions.Location = new System.Drawing.Point(171, 14);
+            this.lblOptions.Location = new System.Drawing.Point(175, 16);
+            this.lblOptions.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOptions.Name = "lblOptions";
-            this.lblOptions.Size = new System.Drawing.Size(89, 30);
+            this.lblOptions.Size = new System.Drawing.Size(86, 30);
             this.lblOptions.TabIndex = 6;
             this.lblOptions.Text = "Options";
             // 
@@ -122,11 +126,13 @@ namespace SharpClipboardPreview.Tests
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpLibrarySettings.Controls.Add(this.grpObservableFormats);
             this.grpLibrarySettings.Controls.Add(this.chkMonitorClipboard);
-            this.grpLibrarySettings.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpLibrarySettings.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.grpLibrarySettings.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.grpLibrarySettings.Location = new System.Drawing.Point(26, 57);
+            this.grpLibrarySettings.Location = new System.Drawing.Point(30, 66);
+            this.grpLibrarySettings.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.grpLibrarySettings.Name = "grpLibrarySettings";
-            this.grpLibrarySettings.Size = new System.Drawing.Size(261, 327);
+            this.grpLibrarySettings.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.grpLibrarySettings.Size = new System.Drawing.Size(304, 377);
             this.grpLibrarySettings.TabIndex = 5;
             this.grpLibrarySettings.TabStop = false;
             this.grpLibrarySettings.Text = "Change library settings";
@@ -142,11 +148,13 @@ namespace SharpClipboardPreview.Tests
             this.grpObservableFormats.Controls.Add(this.chkObserveImages);
             this.grpObservableFormats.Controls.Add(this.lblObservableTextsDesc);
             this.grpObservableFormats.Controls.Add(this.chkObserveTexts);
-            this.grpObservableFormats.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpObservableFormats.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.grpObservableFormats.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.grpObservableFormats.Location = new System.Drawing.Point(17, 74);
+            this.grpObservableFormats.Location = new System.Drawing.Point(20, 85);
+            this.grpObservableFormats.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.grpObservableFormats.Name = "grpObservableFormats";
-            this.grpObservableFormats.Size = new System.Drawing.Size(229, 238);
+            this.grpObservableFormats.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.grpObservableFormats.Size = new System.Drawing.Size(267, 275);
             this.grpObservableFormats.TabIndex = 6;
             this.grpObservableFormats.TabStop = false;
             this.grpObservableFormats.Text = "Observable Formats";
@@ -154,9 +162,10 @@ namespace SharpClipboardPreview.Tests
             // lblObservableFilesDesc
             // 
             this.lblObservableFilesDesc.AutoSize = true;
-            this.lblObservableFilesDesc.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.lblObservableFilesDesc.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblObservableFilesDesc.ForeColor = System.Drawing.Color.Gray;
-            this.lblObservableFilesDesc.Location = new System.Drawing.Point(33, 184);
+            this.lblObservableFilesDesc.Location = new System.Drawing.Point(38, 212);
+            this.lblObservableFilesDesc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblObservableFilesDesc.Name = "lblObservableFilesDesc";
             this.lblObservableFilesDesc.Size = new System.Drawing.Size(176, 30);
             this.lblObservableFilesDesc.TabIndex = 11;
@@ -167,9 +176,10 @@ namespace SharpClipboardPreview.Tests
             this.chkObserveFiles.AutoSize = true;
             this.chkObserveFiles.Checked = true;
             this.chkObserveFiles.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkObserveFiles.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F);
+            this.chkObserveFiles.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.chkObserveFiles.ForeColor = System.Drawing.Color.Black;
-            this.chkObserveFiles.Location = new System.Drawing.Point(17, 163);
+            this.chkObserveFiles.Location = new System.Drawing.Point(20, 188);
+            this.chkObserveFiles.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.chkObserveFiles.Name = "chkObserveFiles";
             this.chkObserveFiles.Size = new System.Drawing.Size(53, 21);
             this.chkObserveFiles.TabIndex = 10;
@@ -180,9 +190,10 @@ namespace SharpClipboardPreview.Tests
             // lblObservableImagesDesc
             // 
             this.lblObservableImagesDesc.AutoSize = true;
-            this.lblObservableImagesDesc.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.lblObservableImagesDesc.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblObservableImagesDesc.ForeColor = System.Drawing.Color.Gray;
-            this.lblObservableImagesDesc.Location = new System.Drawing.Point(33, 120);
+            this.lblObservableImagesDesc.Location = new System.Drawing.Point(38, 138);
+            this.lblObservableImagesDesc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblObservableImagesDesc.Name = "lblObservableImagesDesc";
             this.lblObservableImagesDesc.Size = new System.Drawing.Size(164, 30);
             this.lblObservableImagesDesc.TabIndex = 9;
@@ -193,9 +204,10 @@ namespace SharpClipboardPreview.Tests
             this.chkObserveImages.AutoSize = true;
             this.chkObserveImages.Checked = true;
             this.chkObserveImages.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkObserveImages.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F);
+            this.chkObserveImages.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.chkObserveImages.ForeColor = System.Drawing.Color.Black;
-            this.chkObserveImages.Location = new System.Drawing.Point(17, 99);
+            this.chkObserveImages.Location = new System.Drawing.Point(20, 114);
+            this.chkObserveImages.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.chkObserveImages.Name = "chkObserveImages";
             this.chkObserveImages.Size = new System.Drawing.Size(71, 21);
             this.chkObserveImages.TabIndex = 8;
@@ -206,9 +218,10 @@ namespace SharpClipboardPreview.Tests
             // lblObservableTextsDesc
             // 
             this.lblObservableTextsDesc.AutoSize = true;
-            this.lblObservableTextsDesc.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            this.lblObservableTextsDesc.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblObservableTextsDesc.ForeColor = System.Drawing.Color.DimGray;
-            this.lblObservableTextsDesc.Location = new System.Drawing.Point(33, 54);
+            this.lblObservableTextsDesc.Location = new System.Drawing.Point(38, 62);
+            this.lblObservableTextsDesc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblObservableTextsDesc.Name = "lblObservableTextsDesc";
             this.lblObservableTextsDesc.Size = new System.Drawing.Size(151, 30);
             this.lblObservableTextsDesc.TabIndex = 7;
@@ -219,9 +232,10 @@ namespace SharpClipboardPreview.Tests
             this.chkObserveTexts.AutoSize = true;
             this.chkObserveTexts.Checked = true;
             this.chkObserveTexts.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkObserveTexts.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F);
+            this.chkObserveTexts.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.chkObserveTexts.ForeColor = System.Drawing.Color.Black;
-            this.chkObserveTexts.Location = new System.Drawing.Point(17, 33);
+            this.chkObserveTexts.Location = new System.Drawing.Point(20, 38);
+            this.chkObserveTexts.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.chkObserveTexts.Name = "chkObserveTexts";
             this.chkObserveTexts.Size = new System.Drawing.Size(58, 21);
             this.chkObserveTexts.TabIndex = 1;
@@ -235,10 +249,11 @@ namespace SharpClipboardPreview.Tests
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCopiedTexts.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCopiedTexts.Location = new System.Drawing.Point(8, 69);
+            this.txtCopiedTexts.Location = new System.Drawing.Point(9, 80);
+            this.txtCopiedTexts.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtCopiedTexts.Multiline = true;
             this.txtCopiedTexts.Name = "txtCopiedTexts";
-            this.txtCopiedTexts.Size = new System.Drawing.Size(236, 314);
+            this.txtCopiedTexts.Size = new System.Drawing.Size(275, 362);
             this.txtCopiedTexts.TabIndex = 5;
             // 
             // panel2
@@ -248,17 +263,19 @@ namespace SharpClipboardPreview.Tests
             this.panel2.Controls.Add(this.txtCopiedTexts);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(312, 0);
+            this.panel2.Location = new System.Drawing.Point(364, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(252, 397);
+            this.panel2.Size = new System.Drawing.Size(294, 458);
             this.panel2.TabIndex = 6;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(25, 14);
+            this.label1.Location = new System.Drawing.Point(29, 16);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(130, 30);
             this.label1.TabIndex = 7;
@@ -267,8 +284,9 @@ namespace SharpClipboardPreview.Tests
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(27, 43);
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(31, 50);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 15);
             this.label2.TabIndex = 8;
@@ -281,9 +299,10 @@ namespace SharpClipboardPreview.Tests
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(564, 0);
+            this.panel3.Location = new System.Drawing.Point(658, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(252, 397);
+            this.panel3.Size = new System.Drawing.Size(294, 458);
             this.panel3.TabIndex = 7;
             // 
             // pbCopiedImage
@@ -293,9 +312,10 @@ namespace SharpClipboardPreview.Tests
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pbCopiedImage.BackColor = System.Drawing.Color.Transparent;
             this.pbCopiedImage.Image = ((System.Drawing.Image)(resources.GetObject("pbCopiedImage.Image")));
-            this.pbCopiedImage.Location = new System.Drawing.Point(7, 69);
+            this.pbCopiedImage.Location = new System.Drawing.Point(8, 80);
+            this.pbCopiedImage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pbCopiedImage.Name = "pbCopiedImage";
-            this.pbCopiedImage.Size = new System.Drawing.Size(237, 313);
+            this.pbCopiedImage.Size = new System.Drawing.Size(276, 361);
             this.pbCopiedImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbCopiedImage.TabIndex = 9;
             this.pbCopiedImage.TabStop = false;
@@ -303,9 +323,10 @@ namespace SharpClipboardPreview.Tests
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(25, 14);
+            this.label3.Location = new System.Drawing.Point(29, 16);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(163, 30);
             this.label3.TabIndex = 7;
@@ -314,8 +335,9 @@ namespace SharpClipboardPreview.Tests
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(27, 43);
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(31, 50);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 15);
             this.label4.TabIndex = 8;
@@ -329,9 +351,10 @@ namespace SharpClipboardPreview.Tests
             this.panel4.Controls.Add(this.lstCopiedFiles);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.label6);
-            this.panel4.Location = new System.Drawing.Point(816, 0);
+            this.panel4.Location = new System.Drawing.Point(952, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(252, 397);
+            this.panel4.Size = new System.Drawing.Size(294, 458);
             this.panel4.TabIndex = 8;
             // 
             // lstCopiedFiles
@@ -342,18 +365,21 @@ namespace SharpClipboardPreview.Tests
             this.lstCopiedFiles.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lstCopiedFiles.FormattingEnabled = true;
             this.lstCopiedFiles.HorizontalScrollbar = true;
-            this.lstCopiedFiles.Location = new System.Drawing.Point(8, 69);
+            this.lstCopiedFiles.ItemHeight = 15;
+            this.lstCopiedFiles.Location = new System.Drawing.Point(9, 80);
+            this.lstCopiedFiles.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.lstCopiedFiles.Name = "lstCopiedFiles";
             this.lstCopiedFiles.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lstCopiedFiles.Size = new System.Drawing.Size(236, 314);
+            this.lstCopiedFiles.Size = new System.Drawing.Size(275, 362);
             this.lstCopiedFiles.TabIndex = 11;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 15.75F);
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(25, 14);
+            this.label5.Location = new System.Drawing.Point(29, 16);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(136, 30);
             this.label5.TabIndex = 7;
@@ -362,8 +388,9 @@ namespace SharpClipboardPreview.Tests
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(27, 43);
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(31, 50);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(99, 15);
             this.label6.TabIndex = 8;
@@ -384,13 +411,14 @@ namespace SharpClipboardPreview.Tests
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1068, 397);
+            this.ClientSize = new System.Drawing.Size(1246, 458);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SharpClipboard: Tests";
