@@ -15,12 +15,13 @@ To install via the [NuGet Package Manager](https://www.nuget.org/packages/SharpC
 > `Install-Package SharpClipboard`
 
 # Features
+- Supports [.NET Framework 2.0](https://www.microsoft.com/en-us/download/details.aspx?id=6523) and above plus [.NET Core](https://dotnet.microsoft.com/download).
 - Built as a component making it accessible in Design Mode.
 - Silently monitors the system clipboard uninterrupted; can also be disabled while running.
 - Provides support for multi-instance clipboard monitoring.
 - Ability to detect clipboard content in various formats: **text**, **images**, **files**, and **other complex types**.
 - Option to control the type of content to be monitored, e.g. **text** only, **text** and **images** only.
-- Ability to capture the background application's details from where the clipboard's contents were cut/copied.
+- Ability to capture the background application's details from where the clipboard's contents were captured.
 # Usage
 If you prefer working with the Designer, simply add the library to Visual Studio's Toolbox and use the
 *Properties* window to change its options:
