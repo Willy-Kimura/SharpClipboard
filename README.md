@@ -87,7 +87,7 @@ You can also get the details of the application from where the clipboard's conte
 
 This option could come in handy especially when you're building a clipboard-monitoring application where users may feel the need to know where every recorded cut/copy action occurred.
 
-To manually parse the content after a cut/copy has been detected, you can use the  argument property `e.Content` in the `ClipboardChanged` event:
+To manually parse the content after a cut/copy has been detected, you can use the argument property `e.Content` in the `ClipboardChanged` event:
 
 ```c#
     private void ClipboardChanged(Object sender, ClipboardChangedEventArgs e)
@@ -106,4 +106,6 @@ To manually parse the content after a cut/copy has been detected, you can use th
     }
 ```
 
-*Made with* 💛 *by* [*Willy Kimura*]([https://github.com/Willy-Kimura)
+<hr>
+
+*Made with* 💛 *by* [*Willy Kimura*]([https://github.com/Willy-Kimura) | *Like to say thank you?* ***Star*** *this project. Feel free to [BuyMeACoffee](https://www.buymeacoffee.com/willykimura) also.* 😊
