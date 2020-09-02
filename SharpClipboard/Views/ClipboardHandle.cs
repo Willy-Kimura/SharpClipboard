@@ -1,4 +1,6 @@
-﻿/*
+﻿#region Copyright
+
+/*
  * The SharpClipboard Handle.
  * ---------------------------------------------+
  * Please preserve this window.
@@ -13,6 +15,8 @@
  * ---------------------------------------------+
  *
  */
+
+#endregion
 
 
 using System;

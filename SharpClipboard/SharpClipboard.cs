@@ -1,4 +1,6 @@
-﻿/*
+﻿#region Copyright
+
+/*
  * Developer    : Willy Kimura (WK).
  * Library      : SharpCliboard.
  * License      : MIT.
@@ -12,6 +14,8 @@
  * options and features. Improvements are always welcome.
  * 
  */
+
+#endregion
 
 
 using System;
