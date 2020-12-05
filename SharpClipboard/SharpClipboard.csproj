@@ -23,10 +23,10 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
-    <DocumentationFile>C:\Users\VitalRay\source\repos\libraries\SharpClipboard\SharpClipboard\SharpClipboard.xml</DocumentationFile>
+    <DocumentationFile>SharpClipboard.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)'=='Release'">
-    <DocumentationFile>C:\Users\VitalRay\source\repos\libraries\SharpClipboard\SharpClipboard\SharpClipboard.xml</DocumentationFile>
+    <DocumentationFile>SharpClipboard.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net20' ">
