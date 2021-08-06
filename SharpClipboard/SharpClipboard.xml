@@ -368,12 +368,13 @@
             window in the Task Manager.
             </summary>
         </member>
-        <member name="M:WK.Libraries.SharpClipboardNS.Views.ClipboardHandle.WndProc(System.Windows.Forms.Message@)">
+        <member name="M:WK.Libraries.SharpClipboardNS.Views.ClipboardHandle.ClipManager_ChangedClipboard(System.Object,System.EventArgs)">
             <summary>
             This is the main clipboard detection method.
             Algorithmic customizations are most welcome.
             </summary>
             <param name="m">The processed window-reference message.</param>
+            
         </member>
         <member name="F:WK.Libraries.SharpClipboardNS.Views.ClipboardHandle.components">
             <summary>
