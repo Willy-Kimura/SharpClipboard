@@ -64,6 +64,11 @@
             Represents any complex objects.
             </summary>
         </member>
+        <member name="F:WK.Libraries.SharpClipboardNS.SharpClipboard.ContentTypes.HTML">
+            <summary>
+            Represents a HTML copied from a browser.
+            </summary>
+        </member>
         <member name="P:WK.Libraries.SharpClipboardNS.SharpClipboard.MonitorClipboard">
             <summary>
             Gets or sets a value indicating whether the clipboard

@@ -106,7 +106,12 @@ namespace WK.Libraries.SharpClipboardNS
             /// <summary>
             /// Represents any complex objects.
             /// </summary>
-            Other = 3
+            Other = 3,
+
+            /// <summary>
+            /// Represents a HTML copied from a browser.
+            /// </summary>
+            HTML = 4
         }
 
         #endregion

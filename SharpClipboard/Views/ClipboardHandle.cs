@@ -26,6 +26,8 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
+using WK.Libraries.SharpClipboardNS.Data;
 
 namespace WK.Libraries.SharpClipboardNS.Views
 {
@@ -213,6 +215,31 @@ namespace WK.Libraries.SharpClipboardNS.Views
                                 }
                             }
 
+                            // Determines if Copying from a Browser that sends the Extra Info
+                            else if ((SharpClipboardInstance.ObservableFormats.Texts == true)
+                                     && dataObj.GetDataPresent(DataFormats.Html))
+                            {
+                                string html = (string)dataObj.GetData(DataFormats.Html);
+
+                                var match = Regex.Match(html, "SourceURL:([^\\n]*)");
+                                if (match.Success)
+                                {
+                                    string url = match.Groups[1].Value;
+                                    var content = html.Substring(match.Index + match.Length);
+                                    string stringcontent = (string)dataObj.GetData(DataFormats.StringFormat);
+                                    var respObj = new HtmlData()
+                                    {
+                                        FullHTML = content,
+                                        SelectionHTML = content.Substring(content.IndexOf("<!--StartFragment-->") + 20, content.IndexOf("<!--EndFragment-->") - content.IndexOf("<!--StartFragment-->") - 20),
+                                        URL = url,
+                                        SelectionText = stringcontent
+                                    };
+                                    SharpClipboardInstance.Invoke(respObj, SharpClipboard.ContentTypes.HTML,
+                                    new SourceApplication(GetForegroundWindow(), SharpClipboardInstance.ForegroundWindowHandle(),
+                                    GetApplicationName(), GetActiveWindowTitle(), GetApplicationPath()));
+                                }
+
+                            }
                             // Determines whether text has been cut/copied.
                             else if ((SharpClipboardInstance.ObservableFormats.Texts == true) &&
                                      (dataObj.GetDataPresent(DataFormats.Text) || dataObj.GetDataPresent(DataFormats.UnicodeText)))
