@@ -4,7 +4,7 @@
  * Developer    : Willy Kimura (WK).
  * Library      : SharpCliboard.
  * License      : MIT.
- * 
+ *
  * This handy library was designed to assist .NET developers
  * monitor the system cliboard in an easier and pluggable
  * fashion that before. It provides support for detecting
@@ -12,7 +12,7 @@
  * at design-time, simply add the component in the Toolbox
  * then drag-n-drop it inside your Form to customize its
  * options and features. Improvements are always welcome.
- * 
+ *
  */
 
 #endregion
@@ -25,7 +25,6 @@ using System.ComponentModel;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Runtime.InteropServices;
-
 using WK.Libraries.SharpClipboardNS.Views;
 
 namespace WK.Libraries.SharpClipboardNS
@@ -99,7 +98,7 @@ namespace WK.Libraries.SharpClipboardNS
             Image = 1,
 
             /// <summary>
-            /// Represents content as a <see cref="List{string}"/> of files.
+            /// Represents content as a <see cref="List{String}"/> of files.
             /// </summary>
             Files = 2,
 
@@ -112,7 +111,7 @@ namespace WK.Libraries.SharpClipboardNS
         #endregion
 
         #region Properties
-        
+
         #region Browsable
 
         /// <summary>
@@ -125,11 +124,10 @@ namespace WK.Libraries.SharpClipboardNS
         public bool MonitorClipboard
         {
             get { return _monitorClipboard; }
-            set {
-
+            set
+            {
                 _monitorClipboard = value;
                 MonitorClipboardChanged?.Invoke(this, EventArgs.Empty);
-
             }
         }
 
@@ -147,11 +145,10 @@ namespace WK.Libraries.SharpClipboardNS
         public bool ObserveLastEntry
         {
             get { return _observeLastEntry; }
-            set {
-
+            set
+            {
                 _observeLastEntry = value;
                 ObserveLastEntryChanged?.Invoke(this, EventArgs.Empty);
-
             }
         }
 
@@ -166,11 +163,10 @@ namespace WK.Libraries.SharpClipboardNS
         public ObservableDataFormats ObservableFormats
         {
             get { return _observableFormats; }
-            set {
-
+            set
+            {
                 _observableFormats = value;
                 ObservableFormatsChanged?.Invoke(this, EventArgs.Empty);
-
             }
         }
 
@@ -253,7 +249,7 @@ namespace WK.Libraries.SharpClipboardNS
         /// </summary>
         public void StartMonitoring()
         {
-            _handle.Show();
+            _handle.StartMonitoring();
         }
 
         /// <summary>
@@ -262,7 +258,7 @@ namespace WK.Libraries.SharpClipboardNS
         /// </summary>
         public void StopMonitoring()
         {
-            _handle.Close();
+            _handle.StopMonitoring();
         }
 
         #endregion
@@ -279,7 +275,7 @@ namespace WK.Libraries.SharpClipboardNS
             _timer.Enabled = true;
             _timer.Interval = 1000;
             _timer.Tick += OnLoad;
-        
+
             MonitorClipboard = true;
             ObserveLastEntry = true;
         }
@@ -362,7 +358,7 @@ namespace WK.Libraries.SharpClipboardNS
                 ContentType = contentType;
 
                 _source = new SourceApplication(source.ID, source.Handle, source.Name,
-                                                source.Title, source.Path);
+                    source.Title, source.Path);
             }
 
             #endregion
@@ -392,7 +388,6 @@ namespace WK.Libraries.SharpClipboardNS
             public SourceApplication SourceApplication
             {
                 get { return _source; }
-
             }
 
             #endregion
@@ -428,7 +423,8 @@ namespace WK.Libraries.SharpClipboardNS
 
         #region Standard: Designer
 
-        [System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, Name = "FullTrust")]
+        [System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand,
+            Name = "FullTrust")]
         public class WKDesigner : ComponentDesigner
         {
             private DesignerActionListCollection actionLists;
@@ -436,7 +432,8 @@ namespace WK.Libraries.SharpClipboardNS
             // Use pull model to populate smart tag menu.
             public override DesignerActionListCollection ActionLists
             {
-                get {
+                get
+                {
                     if (null == actionLists)
                     {
                         actionLists = new DesignerActionListCollection
@@ -469,7 +466,7 @@ namespace WK.Libraries.SharpClipboardNS
                 // Cache a reference to DesignerActionUIService so 
                 // that the DesignerActionList can be refreshed.
                 this.designerActionUISvc = GetService(typeof(DesignerActionUIService))
-                                           as DesignerActionUIService;
+                    as DesignerActionUIService;
 
                 // Automatically display Smart Tags for quick access
                 // to the most common properties needed by users.
@@ -533,9 +530,8 @@ namespace WK.Libraries.SharpClipboardNS
 
                     // Add Designer items.
                     new DesignerActionPropertyItem("MonitorClipboard",
-                                     "Monitor Clipboard", "Behaviour",
-                                     GetPropertyDescriptor(this.Component, "MonitorClipboard").Description)
-
+                        "Monitor Clipboard", "Behaviour",
+                        GetPropertyDescriptor(this.Component, "MonitorClipboard").Description)
                 };
 
                 return items;
@@ -598,15 +594,14 @@ namespace WK.Libraries.SharpClipboardNS
         public bool All
         {
             get { return _all; }
-            set {
-
+            set
+            {
                 _all = value;
 
                 Texts = value;
                 Files = value;
                 Images = value;
                 Others = value;
-
             }
         }
 
@@ -655,7 +650,7 @@ namespace WK.Libraries.SharpClipboardNS
 
         #endregion
     }
-    
+
     /// <summary>
     /// Stores details of the application from
     /// where the clipboard's content were copied.
@@ -672,7 +667,7 @@ namespace WK.Libraries.SharpClipboardNS
         /// <param name="title">The application's title.</param>
         /// <param name="path">The application's path.</param>
         internal SourceApplication(int id, IntPtr handle, string name,
-                                   string title, string path)
+            string title, string path)
         {
             ID = id;
             Name = name;
@@ -687,7 +682,7 @@ namespace WK.Libraries.SharpClipboardNS
         /// Gets the application's process-ID.
         /// </summary>
         public int ID { get; }
-        
+
         /// <summary>
         /// Gets the appliation's window-handle.
         /// </summary>

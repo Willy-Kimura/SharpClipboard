@@ -56,7 +56,7 @@
         </member>
         <member name="F:WK.Libraries.SharpClipboardNS.SharpClipboard.ContentTypes.Files">
             <summary>
-            Represents content as a <see cref="!:List&lt;string&gt;"/> of files.
+            Represents content as a <see cref="T:System.Collections.Generic.List`1"/> of files.
             </summary>
         </member>
         <member name="F:WK.Libraries.SharpClipboardNS.SharpClipboard.ContentTypes.Other">
