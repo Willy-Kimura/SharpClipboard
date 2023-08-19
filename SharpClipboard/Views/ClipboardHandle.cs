@@ -379,6 +379,7 @@ namespace WK.Libraries.SharpClipboardNS.Views
         {
             // Start listening for clipboard changes.
             Retry.Do(() => AddClipboardFormatListener(this.Handle), 100, 5);
+            Ready = true;
         }
 
         private void OnClose(object sender, FormClosingEventArgs e)

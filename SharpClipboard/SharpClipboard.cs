@@ -249,7 +249,7 @@ namespace WK.Libraries.SharpClipboardNS
         /// </summary>
         public void StartMonitoring()
         {
-            _handle.StartMonitoring();
+            _handle.Show();
         }
 
         /// <summary>
@@ -258,7 +258,7 @@ namespace WK.Libraries.SharpClipboardNS
         /// </summary>
         public void StopMonitoring()
         {
-            _handle.StopMonitoring();
+            _handle.Close();
         }
 
         #endregion
